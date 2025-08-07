@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/features/home/presentation/home_view.dart';
+import 'package:food_recipes/app/features/welcome/welcome_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -11,7 +12,8 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody>  with TickerProviderStateMixin{
+class _SplashViewBodyState extends State<SplashViewBody>
+    with TickerProviderStateMixin {
   late AnimationController logoAnimationController;
   late Animation<Offset> logoSlidingAnimation;
 
@@ -22,12 +24,10 @@ class _SplashViewBodyState extends State<SplashViewBody>  with TickerProviderSta
     Timer(const Duration(seconds: 6), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeView()),
+        MaterialPageRoute(builder: (context) => const WelcomeView()),
       );
     });
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _SplashViewBodyState extends State<SplashViewBody>  with TickerProviderSta
         position: logoSlidingAnimation,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SvgPicture.asset('assets/photos/foodLogo.svg'),
           ],
@@ -45,6 +45,7 @@ class _SplashViewBodyState extends State<SplashViewBody>  with TickerProviderSta
       ),
     );
   }
+
   void initAnimation() {
     logoAnimationController = AnimationController(
       vsync: this,
@@ -55,6 +56,5 @@ class _SplashViewBodyState extends State<SplashViewBody>  with TickerProviderSta
       end: Offset.zero,
     ).animate(logoAnimationController);
     logoAnimationController.forward();
-
   }
 }
