@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_text_field.dart';
 import 'package:food_recipes/constant.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -9,10 +10,13 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
-      body: Column(
-        children: [
-          SvgPicture.asset("assets/photos/foodLogo.svg"),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Column(
+          children: [
+            SvgPicture.asset("assets/photos/foodLogo.svg"),
+          ],
+        ),
       ),
     );
   }
