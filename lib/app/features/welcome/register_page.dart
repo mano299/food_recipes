@@ -15,6 +15,11 @@ class RegisterPage extends StatelessWidget {
         child: Column(
           children: [
             SvgPicture.asset("assets/photos/foodLogo.svg"),
+            Customtextfield(hint: "Full Name", icon: Icons.person),
+            Customtextfield(hint: "Valied Email", icon: Icons.email),
+            Customtextfield(
+                hint: "Phone Number", icon: Icons.phone_iphone_outlined),
+            Customtextfield(hint: "Strong Password", icon: Icons.lock_outline),
           ],
         ),
       ),
