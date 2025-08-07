@@ -11,6 +11,7 @@ class FoodRecipe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: "Quicksand"),
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: const SplashView(),
