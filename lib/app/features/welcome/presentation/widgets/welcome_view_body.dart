@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_button.dart';
+import 'package:food_recipes/app/features/welcome/register_page.dart';
 
 class WelcomeViewBody extends StatelessWidget {
   const WelcomeViewBody({
@@ -48,10 +49,22 @@ class WelcomeViewBody extends StatelessWidget {
             label: "Login",
           ),
         ),
-        Text(
-          "Create New Account",
-          style: TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return RegisterPage();
+                },
+              ),
+            );
+          },
+          child: Text(
+            "Create New Account",
+            style: TextStyle(
+                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+          ),
         ),
       ],
     );

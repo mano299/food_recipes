@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  CustomButton({
-    super.key,
-    required this.label,
-  });
+  CustomButton({super.key, required this.label, this.onTap});
   final String label;
   Function()? onTap;
   @override
