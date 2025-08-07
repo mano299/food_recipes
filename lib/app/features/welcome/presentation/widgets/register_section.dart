@@ -26,7 +26,10 @@ class RegisterSection extends StatelessWidget {
                   style: TextStyle(color: Color(0xff0A2527)),
                 ))
           ],
-        )
+        ),
+        SizedBox(
+          height: 20,
+        ),
       ],
     );
   }

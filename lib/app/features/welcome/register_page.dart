@@ -15,15 +15,17 @@ class RegisterPage extends StatelessWidget {
       backgroundColor: kPrimaryColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Column(
-          children: [
-            SvgPicture.asset("assets/photos/foodLogo.svg"),
-            userInputDataSection(),
-            SizedBox(
-              height: 50,
-            ),
-            RegisterSection(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SvgPicture.asset("assets/photos/foodLogo.svg"),
+              userInputDataSection(),
+              SizedBox(
+                height: 50,
+              ),
+              RegisterSection(),
+            ],
+          ),
         ),
       ),
     );
