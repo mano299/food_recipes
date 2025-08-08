@@ -12,6 +12,8 @@ class CustomButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 16),
         alignment: Alignment.center,
         width: double.infinity,
+        decoration: BoxDecoration(
+            color: Color(0xff0A2527), borderRadius: BorderRadius.circular(16)),
         child: Text(
           label,
           style: TextStyle(
@@ -20,8 +22,6 @@ class CustomButton extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
         ),
-        decoration: BoxDecoration(
-            color: Color(0xff0A2527), borderRadius: BorderRadius.circular(16)),
       ),
     );
   }

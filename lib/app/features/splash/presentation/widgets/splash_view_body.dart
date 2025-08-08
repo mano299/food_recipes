@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:food_recipes/app/features/home/presentation/home_view.dart';
 import 'package:food_recipes/app/features/welcome/welcome_view.dart';
 
 class SplashViewBody extends StatefulWidget {

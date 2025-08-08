@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_button.dart';
 import 'package:food_recipes/app/features/welcome/register_page.dart';
 
