@@ -8,7 +8,7 @@ class FeaturedListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.23,
-      width: MediaQuery.of(context).size.height * 0.35,
+      width: MediaQuery.of(context).size.height * 0.34,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
