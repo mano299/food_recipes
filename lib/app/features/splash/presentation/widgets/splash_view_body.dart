@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_recipes/app/features/home/presentation/home_view.dart';
 import 'package:food_recipes/app/features/welcome/welcome_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -23,7 +24,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStat
     Timer(const Duration(seconds: 6), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const WelcomeView()),
+        MaterialPageRoute(builder: (context) => const HomeView()),
       );
     });
   }

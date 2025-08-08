@@ -12,4 +12,9 @@ class Styles {
     fontWeight: FontWeight.w900,
     color: kTextColor,
   );
+  static const textStyle26 = TextStyle(
+    fontSize: 26,
+    fontWeight: FontWeight.w700,
+    color: kTextColor,
+  );
 }

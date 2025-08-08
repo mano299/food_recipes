@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/custom_app_bar.dart';
 
 class HomrViewBody extends StatelessWidget {
   const HomrViewBody({super.key});
@@ -7,52 +8,41 @@ class HomrViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Column(
-        children: [
-          CustomAppBar(),
-        ],
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomAppBar(),
+            SizedBox(height: 24),
+            Text(
+              'Featured',
+              style: Styles.textStyle26,
+            ),
+            SizedBox(height: 8),
+            FeaturedListViewItem()
+          ],
+        ),
       ),
     );
   }
 }
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+class FeaturedListViewItem extends StatelessWidget {
+  const FeaturedListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0),
-      child: const SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.wb_sunny_outlined,
-                  color: Color(0xff4D8194),
-                  size: 26,
-                ),
-                SizedBox(width: 4),
-                Text(
-                  'Good Morning',
-                  style: Styles.textStyle18,
-                ),
-                Spacer(),
-                Icon(
-                  Icons.shopping_cart_outlined,
-                  size: 28,
-                )
-              ],
-            ),
-            Text(
-              'Alena Sabyan',
-              style: Styles.textStyle28,
-            ),
-          ],
-        ),
-      ),
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.21,
+      width: MediaQuery.of(context).size.height * 0.35,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24),
+          image: DecorationImage(
+            image: AssetImage('assets/photos/background.png'),
+            fit: BoxFit.fill
+          )),
     );
   }
 }
