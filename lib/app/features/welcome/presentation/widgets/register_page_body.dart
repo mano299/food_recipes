@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_button.dart';
@@ -76,6 +78,8 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
                       });
                       try {
                         await RegisterUser();
+                        ShowSnakBar(
+                            context, "Success Register and saving data");
                         setState(() {
                           isLoading = false;
                         });
@@ -143,5 +147,14 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
       email: email!,
       password: password!,
     );
+
+    String uid = userCredential.user!.uid;
+    await FirebaseFirestore.instance.collection('users').doc(uid).set({
+      "FullName": name,
+      "PhoneNumber": phoneNumber,
+      "Email": email,
+      "createdAt": FieldValue.serverTimestamp(),
+    });
+    log("✅ User data saved in Firestore with UID: $uid");
   }
 }
