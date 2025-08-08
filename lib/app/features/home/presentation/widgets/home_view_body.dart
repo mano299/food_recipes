@@ -43,11 +43,37 @@ class HomrViewBody extends StatelessWidget {
                       color: kPrimaryColor,
                     ),
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
+          SizedBox(height: 12),
+          CategoryItem()
         ],
+      ),
+    );
+  }
+}
+
+class CategoryItem extends StatelessWidget {
+  const CategoryItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 41,
+      width: 119,
+      decoration: BoxDecoration(
+        color: Color(0xffF1F5F5),
+        borderRadius: BorderRadius.circular(32),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+            child: Text(
+          'Breakfast',
+          style: Styles.textStyle18,
+        )),
       ),
     );
   }
