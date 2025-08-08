@@ -17,7 +17,8 @@ class Customtextfield extends StatelessWidget {
           }
           return null;
         },
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(
+            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
         onChanged: onChanged,
         cursorColor: Colors.white,
         decoration: InputDecoration(

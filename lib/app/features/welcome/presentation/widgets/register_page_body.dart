@@ -85,13 +85,19 @@ class RegisterPageBody extends StatelessWidget {
                 children: [
                   Text(
                     "Already a member ",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700),
                   ),
                   InkWell(
                       onTap: () async {},
                       child: Text(
                         "Login",
-                        style: TextStyle(color: Color(0xff0A2527)),
+                        style: TextStyle(
+                            color: Color(0xff0A2527),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700),
                       ))
                 ],
               ),
