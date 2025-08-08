@@ -29,6 +29,8 @@ class Customtextfield extends StatelessWidget {
           ),
           //suffix: Icon(icon),
           iconColor: Colors.white,
+          hintText: hint,
+          hintStyle: TextStyle(color: Colors.white),
           labelStyle: TextStyle(color: Colors.white),
           border: OutlineInputBorder(
             borderSide: BorderSide(width: 1, color: Colors.white),
