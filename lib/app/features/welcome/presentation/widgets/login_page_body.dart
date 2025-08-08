@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/core/utils/function/show_snak_bar.dart';
@@ -66,23 +65,23 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                       try {
                         await LoginUser();
                         (context, "SUCCESSFUL");
+
                         setState(() {
                           isLoading = false;
                         });
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'user-not-found') {
                           ShowSnakBar(context, 'No user found for that email.');
-                          setState(() {
-                            isLoading = false;
-                          });
                         } else if (e.code == 'wrong-password') {
                           ShowSnakBar(context,
                               'Wrong password provided for that user.');
-                          setState(() {
-                            isLoading = false;
-                          });
                         }
+                      } catch (e) {
+                        ShowSnakBar(context, e.toString());
                       }
+                      setState(() {
+                        isLoading = false;
+                      });
                     }
                   },
                 ),

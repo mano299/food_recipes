@@ -11,7 +11,8 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStateMixin {
+class _SplashViewBodyState extends State<SplashViewBody>
+    with TickerProviderStateMixin {
   late AnimationController logoAnimationController;
   late Animation<Offset> logoSlidingAnimation;
 
@@ -24,7 +25,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStat
     Timer(const Duration(seconds: 6), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeView()),
+        MaterialPageRoute(builder: (context) => const WelcomeView()),
       );
     });
   }

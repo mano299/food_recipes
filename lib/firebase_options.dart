@@ -47,29 +47,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBiMuZ4wsamwSXCkTbSP-ho1snXeEQ78C4',
-    appId: '1:927317411598:web:7d605e697f2145a5fe795f',
-    messagingSenderId: '927317411598',
-    projectId: 'food-recipes-1b74a',
-    authDomain: 'food-recipes-1b74a.firebaseapp.com',
-    storageBucket: 'food-recipes-1b74a.firebasestorage.app',
-    measurementId: 'G-GSWSN5EXH5',
+    apiKey: 'AIzaSyAdSpfP4MWNQQZ_ax3AlRNerMpNMKK1UCA',
+    appId: '1:753060468997:web:21872e163494ce8eda7f6c',
+    messagingSenderId: '753060468997',
+    projectId: 'recipe-food-c74ff',
+    authDomain: 'recipe-food-c74ff.firebaseapp.com',
+    storageBucket: 'recipe-food-c74ff.firebasestorage.app',
+    measurementId: 'G-Z9NSRQ1VS3',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDYLEkw_nEMectGuAkWtCdmY8FqrrAFuQU',
-    appId: '1:927317411598:android:fd96f567624761a1fe795f',
-    messagingSenderId: '927317411598',
-    projectId: 'food-recipes-1b74a',
-    storageBucket: 'food-recipes-1b74a.firebasestorage.app',
+    apiKey: 'AIzaSyBrIaPoLcDp2DeFITWQDdYdV-BoexTetSs',
+    appId: '1:753060468997:android:5a0ec77a2f7947c4da7f6c',
+    messagingSenderId: '753060468997',
+    projectId: 'recipe-food-c74ff',
+    storageBucket: 'recipe-food-c74ff.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDp_yfUwiY6b07sl64AiCz6fSzvfF0KvgE',
-    appId: '1:927317411598:ios:0fa9a68cd48864affe795f',
-    messagingSenderId: '927317411598',
-    projectId: 'food-recipes-1b74a',
-    storageBucket: 'food-recipes-1b74a.firebasestorage.app',
+    apiKey: 'AIzaSyC5LF0baZ2nZx2nm3HSJNQksFpZvX0ld_o',
+    appId: '1:753060468997:ios:641103ac6b9a3a3eda7f6c',
+    messagingSenderId: '753060468997',
+    projectId: 'recipe-food-c74ff',
+    storageBucket: 'recipe-food-c74ff.firebasestorage.app',
     iosBundleId: 'com.example.foodRecipes',
   );
+
 }
