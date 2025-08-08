@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/category_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/custom_app_bar.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/featured_list_view.dart';
 
@@ -48,33 +49,10 @@ class HomrViewBody extends StatelessWidget {
             ),
           ),
           SizedBox(height: 12),
-          CategoryItem()
+          CategoryListView()
         ],
       ),
     );
   }
 }
 
-class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 41,
-      width: 119,
-      decoration: BoxDecoration(
-        color: Color(0xffF1F5F5),
-        borderRadius: BorderRadius.circular(32),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-            child: Text(
-          'Breakfast',
-          style: Styles.textStyle18,
-        )),
-      ),
-    );
-  }
-}
