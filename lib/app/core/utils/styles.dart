@@ -7,6 +7,11 @@ class Styles {
     fontWeight: FontWeight.w600,
     color: kTextColor,
   );
+  static const textStyle22 = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w800,
+    color: Colors.white,
+  );
   static const textStyle28 = TextStyle(
     fontSize: 28,
     fontWeight: FontWeight.w900,

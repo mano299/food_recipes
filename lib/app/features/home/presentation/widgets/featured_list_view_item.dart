@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+import 'package:food_recipes/app/core/utils/styles.dart';
+
+class FeaturedListViewItem extends StatelessWidget {
+  const FeaturedListViewItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.21,
+      width: MediaQuery.of(context).size.height * 0.35,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        image: DecorationImage(
+            image: AssetImage('assets/photos/background.png'),
+            fit: BoxFit.fill),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16.0, top: 32, right: 16),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Asian white noodle with extra seafood',
+            style: Styles.textStyle22,
+            maxLines: 2,
+
+          ),
+        ),
+      ),
+    );
+  }
+}

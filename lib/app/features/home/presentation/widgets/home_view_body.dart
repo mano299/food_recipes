@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/custom_app_bar.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/featured_list_view_item.dart';
 
 class HomrViewBody extends StatelessWidget {
   const HomrViewBody({super.key});
@@ -29,20 +30,3 @@ class HomrViewBody extends StatelessWidget {
   }
 }
 
-class FeaturedListViewItem extends StatelessWidget {
-  const FeaturedListViewItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.21,
-      width: MediaQuery.of(context).size.height * 0.35,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24),
-          image: DecorationImage(
-            image: AssetImage('assets/photos/background.png'),
-            fit: BoxFit.fill
-          )),
-    );
-  }
-}
