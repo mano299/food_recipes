@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_button.dart';
+import 'package:food_recipes/app/features/welcome/presentation/widgets/login_page.dart';
 import 'package:food_recipes/app/features/welcome/register_page.dart';
 
 class WelcomeViewBody extends StatelessWidget {
@@ -45,6 +46,11 @@ class WelcomeViewBody extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(24),
           child: CustomButton(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return LoginPage();
+              }));
+            },
             label: "Login",
           ),
         ),

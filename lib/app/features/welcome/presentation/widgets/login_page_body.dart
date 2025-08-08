@@ -7,20 +7,20 @@ import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_button.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:food_recipes/app/features/welcome/presentation/widgets/login_page.dart';
+import 'package:food_recipes/app/features/welcome/register_page.dart';
 import 'package:food_recipes/core/utils/function/show_snak_bar.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class RegisterPageBody extends StatefulWidget {
-  RegisterPageBody({
+class LoginPageBody extends StatefulWidget {
+  LoginPageBody({
     super.key,
   });
 
   @override
-  State<RegisterPageBody> createState() => _RegisterPageBodyState();
+  State<LoginPageBody> createState() => _LoginPageBodyState();
 }
 
-class _RegisterPageBodyState extends State<RegisterPageBody> {
+class _LoginPageBodyState extends State<LoginPageBody> {
   String? name, email, phoneNumber, password;
 
   bool isLoading = false;
@@ -40,28 +40,14 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
               children: [
                 SvgPicture.asset("assets/photos/foodLogo.svg"),
                 Customtextfield(
-                  hint: "Full Name",
-                  icon: Icons.person,
-                  onChanged: (value) {
-                    name = value;
-                  },
-                ),
-                Customtextfield(
-                  hint: "Valied Email",
+                  hint: "Email",
                   icon: Icons.email,
                   onChanged: (value) {
                     email = value;
                   },
                 ),
                 Customtextfield(
-                  hint: "Phone Number",
-                  icon: Icons.phone_iphone_outlined,
-                  onChanged: (value) {
-                    phoneNumber = value;
-                  },
-                ),
-                Customtextfield(
-                  hint: "Strong Password",
+                  hint: "Password",
                   icon: Icons.lock_outline,
                   onChanged: (value) {
                     password = value;
@@ -70,39 +56,35 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
                 SizedBox(
                   height: 50,
                 ),
+                SizedBox(
+                  height: MediaQuery.sizeOf(context).height * .15,
+                ),
                 CustomButton(
-                  label: "Register",
+                  label: "Login",
                   onTap: () async {
                     if (formKey.currentState!.validate()) {
                       setState(() {
                         isLoading = true;
                       });
                       try {
-                        await RegisterUser();
-                        ShowSnakBar(
-                            context, "Success Register and saving data");
+                        await LoginUser();
+                        ShowSnakBar(context, "SUCCESSFUL");
                         setState(() {
                           isLoading = false;
                         });
                       } on FirebaseAuthException catch (e) {
-                        if (e.code == 'weak-password') {
-                          ShowSnakBar(
-                              context, 'The password provided is too weak.');
+                        if (e.code == 'user-not-found') {
+                          ShowSnakBar(context, 'No user found for that email.');
                           setState(() {
                             isLoading = false;
                           });
-                        } else if (e.code == 'email-already-in-use') {
+                        } else if (e.code == 'wrong-password') {
                           ShowSnakBar(context,
-                              'The account already exists for that email.');
+                              'Wrong password provided for that user.');
                           setState(() {
                             isLoading = false;
                           });
                         }
-                      } catch (e) {
-                        print(e);
-                        setState(() {
-                          isLoading = false;
-                        });
                       }
                     }
                   },
@@ -114,7 +96,7 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Already a member ",
+                      "Don't have an account ",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -124,11 +106,11 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
                         onTap: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                            return LoginPage();
+                            return RegisterPage();
                           }));
                         },
                         child: Text(
-                          "Login",
+                          "Register",
                           style: TextStyle(
                               color: Color(0xff0A2527),
                               fontSize: 16,
@@ -147,20 +129,11 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
     );
   }
 
-  Future<void> RegisterUser() async {
+  Future<void> LoginUser() async {
     UserCredential userCredential =
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: email!,
       password: password!,
     );
-
-    String uid = userCredential.user!.uid;
-    await FirebaseFirestore.instance.collection('users').doc(uid).set({
-      "FullName": name,
-      "PhoneNumber": phoneNumber,
-      "Email": email,
-      "createdAt": FieldValue.serverTimestamp(),
-    });
-    log("✅ User data saved in Firestore with UID: $uid");
   }
 }
