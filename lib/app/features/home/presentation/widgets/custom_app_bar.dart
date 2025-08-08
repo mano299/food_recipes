@@ -8,33 +8,36 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(
-                Icons.wb_sunny_outlined,
-                color: Color(0xff4D8194),
-                size: 26,
-              ),
-              SizedBox(width: 4),
-              Text(
-                'Good Morning',
-                style: Styles.textStyle18,
-              ),
-              Spacer(),
-              Icon(
-                Icons.shopping_cart_outlined,
-                size: 28,
-              )
-            ],
-          ),
-          Text(
-            'Alena Sabyan',
-            style: Styles.textStyle28,
-          ),
-        ],
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  Icons.wb_sunny_outlined,
+                  color: Color(0xff4D8194),
+                  size: 26,
+                ),
+                SizedBox(width: 4),
+                Text(
+                  'Good Morning',
+                  style: Styles.textStyle18,
+                ),
+                Spacer(),
+                Icon(
+                  Icons.shopping_cart_outlined,
+                  size: 28,
+                )
+              ],
+            ),
+            Text(
+              'Alena Sabyan',
+              style: Styles.textStyle28,
+            ),
+          ],
+        ),
       ),
     );
   }
