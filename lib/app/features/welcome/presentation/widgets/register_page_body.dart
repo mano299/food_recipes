@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_button.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:food_recipes/core/utils/function/show_snak_bar.dart';
 
 class RegisterPageBody extends StatelessWidget {
   RegisterPageBody({
@@ -64,9 +65,11 @@ class RegisterPageBody extends StatelessWidget {
                       log("message");
                     } on FirebaseAuthException catch (e) {
                       if (e.code == 'weak-password') {
-                        print('The password provided is too weak.');
+                        ShowSnakBar(
+                            context, 'The password provided is too weak.');
                       } else if (e.code == 'email-already-in-use') {
-                        print('The account already exists for that email.');
+                        ShowSnakBar(context,
+                            'The account already exists for that email.');
                       }
                     } catch (e) {
                       print(e);
