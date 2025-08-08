@@ -1,7 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_recipes/app/features/home/presentation/home_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -11,14 +10,16 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody>  with TickerProviderStateMixin{
+class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStateMixin {
   late AnimationController logoAnimationController;
   late Animation<Offset> logoSlidingAnimation;
 
   @override
   void initState() {
-    initAnimation();
     super.initState();
+    initAnimation();
+
+    // تأخير الانتقال لمدة 6 ثواني
     Timer(const Duration(seconds: 6), () {
       Navigator.pushReplacement(
         context,
@@ -27,34 +28,43 @@ class _SplashViewBodyState extends State<SplashViewBody>  with TickerProviderSta
     });
   }
 
-  
+  void initAnimation() {
+    logoAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+
+    logoSlidingAnimation = Tween<Offset>(
+      begin: const Offset(0, -2),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(
+      parent: logoAnimationController,
+      curve: Curves.easeOut,
+    ));
+
+    logoAnimationController.forward();
+  }
+
+  @override
+  void dispose() {
+    logoAnimationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff70B9BE),
-      body: SlideTransition(
-        position: logoSlidingAnimation,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SvgPicture.asset('assets/photos/foodLogo.svg'),
-          ],
+      backgroundColor: const Color(0xff70b9be),
+      body: Center(
+        child: SlideTransition(
+          position: logoSlidingAnimation,
+          child: SvgPicture.asset(
+            'assets/photos/foodLogo.svg',
+            width: 350,
+            height: 350,
+          ),
         ),
       ),
     );
-  }
-  void initAnimation() {
-    logoAnimationController = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 4),
-    );
-    logoSlidingAnimation = Tween<Offset>(
-      begin: Offset(0, -2),
-      end: Offset.zero,
-    ).animate(logoAnimationController);
-    logoAnimationController.forward();
-
   }
 }
