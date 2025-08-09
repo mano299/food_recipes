@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/category_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/custom_app_bar.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/featured_list_view_item.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/featured_list_view.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/popular_list_view_item.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/see_all_button.dart';
 
 class HomrViewBody extends StatelessWidget {
   const HomrViewBody({super.key});
@@ -10,23 +14,77 @@ class HomrViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: const Column(
+      body: SingleChildScrollView(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(),
-            SizedBox(height: 24),
-            Text(
-              'Featured',
-              style: Styles.textStyle26,
+            const CustomAppBar(),
+            const SizedBox(height: 24),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                'Featured',
+                style: Styles.textStyle26,
+              ),
             ),
-            SizedBox(height: 8),
-            FeaturedListViewItem()
+            const SizedBox(height: 12),
+            const FeaturedListView(),
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Category',
+                    style: Styles.textStyle26,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See All',
+                      style: Styles.textStyle18.copyWith(
+                        color: kPrimaryColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 12),
+            CategoryListView(),
+            SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Popular Recipes',
+                    style: Styles.textStyle26,
+                  ),
+                  SeeAllButton(),
+                ],
+              ),
+            ),
+            SizedBox(height: 12),
+            SizedBox(
+              height: 270,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 24.0),
+                child: ListView.builder(
+                  itemCount: 5,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return PopularListViewItem();
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 32,)
           ],
         ),
       ),
     );
   }
 }
-
