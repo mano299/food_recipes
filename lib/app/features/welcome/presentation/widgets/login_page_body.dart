@@ -69,7 +69,7 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                         (context, "SUCCESSFUL");
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return HomeView();
+                          return SearchView();
                         }));
                         setState(() {
                           isLoading = false;
