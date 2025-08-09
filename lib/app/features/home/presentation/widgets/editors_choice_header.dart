@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/see_all_button.dart';
 
-class PopularRecipesHeader extends StatelessWidget {
-  const PopularRecipesHeader({
+class EditorsChoiceHeader extends StatelessWidget {
+  const EditorsChoiceHeader({
     super.key,
   });
 
@@ -13,11 +13,11 @@ class PopularRecipesHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Popular Recipes',
+          'Editor’s Choice',
           style: Styles.textStyle21(context),
         ),
         SeeAllButton(
-          text: "See All",
+          text: "View All",
         ),
       ],
     );
