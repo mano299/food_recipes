@@ -1,17 +1,17 @@
-
 import 'package:flutter/material.dart';
+import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
-
+  const CategoryItem({super.key, this.isSelected = false});
+  final bool isSelected;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 48,
       width: 119,
       decoration: BoxDecoration(
-        color: Color(0xffF1F5F5),
+        color: isSelected ? kPrimaryColor : Color(0xffF1F5F5),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
@@ -19,7 +19,9 @@ class CategoryItem extends StatelessWidget {
         child: Center(
             child: Text(
           'Breakfast',
-          style: Styles.textStyle18,
+          style: isSelected
+              ? Styles.textStyle18.copyWith(color: Colors.white)
+              : Styles.textStyle18,
         )),
       ),
     );

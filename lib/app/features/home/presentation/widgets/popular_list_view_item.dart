@@ -18,7 +18,7 @@ class PopularListViewItem extends StatelessWidget {
           BoxShadow(
             color: Colors.black12,
             blurRadius: 10,
-            offset: Offset(0, 3),
+            offset: Offset(6, 6),
           )
         ],
       ),

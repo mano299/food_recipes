@@ -1,10 +1,15 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/category_item.dart';
 
-class CategoryListView extends StatelessWidget {
+class CategoryListView extends StatefulWidget {
   const CategoryListView({super.key});
 
+  @override
+  State<CategoryListView> createState() => _CategoryListViewState();
+}
+
+class _CategoryListViewState extends State<CategoryListView> {
+  int selectedIndex  = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -14,7 +19,14 @@ class CategoryListView extends StatelessWidget {
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return CategoryItem();
+            return GestureDetector(
+              onTap: (){
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              child: CategoryItem(isSelected: selectedIndex == index,),
+            );
           },
           separatorBuilder: (context, index) {
             return SizedBox(width: 12);
