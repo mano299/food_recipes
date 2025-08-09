@@ -8,7 +8,6 @@ class PopularRecipesItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8),
-      height: 150,
       width: 110,
       decoration: BoxDecoration(
           // boxShadow: [BoxShadow()],

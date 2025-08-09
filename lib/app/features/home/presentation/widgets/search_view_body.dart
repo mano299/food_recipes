@@ -19,8 +19,17 @@ class SearchViewBody extends StatelessWidget {
           child: searchTextField(),
         ),
         CategoryListView(),
-        PopularRecipesHeader(),
-        //  Expanded(child: PopluerRecipesListView()),
+        SizedBox(
+          height: 30,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+          child: PopularRecipesHeader(),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        SizedBox(height: 150, child: Expanded(child: PopluerRecipesListView())),
       ],
     );
   }
