@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/category_list_view.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/editor_choice_item.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/editors_choice_header.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/popluer_recipes_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/populerRecipesHeader.dart';
@@ -38,6 +39,7 @@ class SearchViewBody extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 18.0),
           child: EditorsChoiceHeader(),
         ),
+        EditorChoiceItem()
       ],
     );
   }
