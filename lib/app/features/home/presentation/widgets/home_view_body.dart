@@ -4,6 +4,7 @@ import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/category_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/custom_app_bar.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/featured_list_view.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/popular_list_view_item.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/see_all_button.dart';
 
 class HomrViewBody extends StatelessWidget {
@@ -67,7 +68,19 @@ class HomrViewBody extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12),
-            
+            SizedBox(
+              height: 270,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 24.0),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return PopularListViewItem();
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 32,)
           ],
         ),
       ),
