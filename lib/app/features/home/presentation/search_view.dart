@@ -12,7 +12,7 @@ class SearchView extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "Search",
-          style: Styles.textStyle28,
+          style: Styles.textStyle28(context),
         ),
       ),
       body: SearchViewBody(),

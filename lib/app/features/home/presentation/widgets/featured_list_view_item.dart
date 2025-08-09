@@ -21,8 +21,8 @@ class FeaturedListViewItem extends StatelessWidget {
         child: Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'Asian white noodle with extra seafood',
-            style: Styles.textStyle22,
+            'Asian white noodle \nwith extra seafood',
+            style: Styles.textStyle21(context).copyWith(color: Colors.white),
             maxLines: 2,
           ),
         ),

@@ -20,11 +20,11 @@ class HomrViewBody extends StatelessWidget {
           children: [
             const CustomAppBar(),
             const SizedBox(height: 24),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: Text(
                 'Featured',
-                style: Styles.textStyle26,
+                style: Styles.textStyle21(context),
               ),
             ),
             const SizedBox(height: 12),
@@ -35,15 +35,15 @@ class HomrViewBody extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     'Category',
-                    style: Styles.textStyle26,
+                    style: Styles.textStyle21(context),
                   ),
                   TextButton(
                     onPressed: () {},
                     child: Text(
                       'See All',
-                      style: Styles.textStyle18.copyWith(
+                      style: Styles.textStyle14(context).copyWith(
                         color: kPrimaryColor,
                       ),
                     ),
@@ -59,9 +59,9 @@ class HomrViewBody extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     'Popular Recipes',
-                    style: Styles.textStyle26,
+                    style: Styles.textStyle21(context),
                   ),
                   SeeAllButton(),
                 ],
@@ -81,7 +81,9 @@ class HomrViewBody extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 32,)
+            SizedBox(
+              height: 32,
+            )
           ],
         ),
       ),

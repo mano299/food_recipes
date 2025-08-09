@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
@@ -14,7 +13,7 @@ class SeeAllButton extends StatelessWidget {
       onPressed: () {},
       child: Text(
         'See All',
-        style: Styles.textStyle18.copyWith(
+        style: Styles.textStyle14(context).copyWith(
           color: kPrimaryColor,
         ),
       ),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
@@ -63,7 +62,7 @@ class PopularListViewItem extends StatelessWidget {
               'Healthy Taco Salad with fresh vegetable',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: Styles.textStyle22.copyWith(color: kTextColor),
+              style: Styles.textStyle18(context).copyWith(color: kTextColor),
             ),
           ),
           Padding(
@@ -71,8 +70,13 @@ class PopularListViewItem extends StatelessWidget {
             child: Row(
               children: [
                 Icon(Icons.location_on),
-                SizedBox(width: 4,),
-                Text('Italian', style: Styles.textStyle18,)
+                SizedBox(
+                  width: 4,
+                ),
+                Text(
+                  'Italian',
+                  style: Styles.textStyle14(context),
+                )
               ],
             ),
           )

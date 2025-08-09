@@ -20,8 +20,8 @@ class CategoryItem extends StatelessWidget {
             child: Text(
           'Breakfast',
           style: isSelected
-              ? Styles.textStyle18.copyWith(color: Colors.white)
-              : Styles.textStyle18,
+              ? Styles.textStyle14(context).copyWith(color: Colors.white)
+              : Styles.textStyle14(context),
         )),
       ),
     );

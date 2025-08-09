@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
@@ -7,7 +6,7 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -23,7 +22,8 @@ class CustomAppBar extends StatelessWidget {
                 SizedBox(width: 4),
                 Text(
                   'Good Morning',
-                  style: Styles.textStyle18,
+                  style: Styles.textStyle14(context)
+                      .copyWith(fontWeight: FontWeight.w500),
                 ),
                 Spacer(),
                 Icon(
@@ -34,7 +34,7 @@ class CustomAppBar extends StatelessWidget {
             ),
             Text(
               'Alena Sabyan',
-              style: Styles.textStyle28,
+              style: Styles.textStyle28(context),
             ),
           ],
         ),
