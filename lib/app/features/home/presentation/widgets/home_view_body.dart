@@ -65,6 +65,8 @@ class HomrViewBody extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(height: 12),
+          
         ],
       ),
     );
@@ -72,3 +74,11 @@ class HomrViewBody extends StatelessWidget {
 }
 
 
+class PopularListViewItem extends StatelessWidget {
+  const PopularListViewItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}

@@ -12,8 +12,9 @@ class FeaturedListViewItem extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
-            image: AssetImage('assets/photos/background.png'),
-            fit: BoxFit.fill),
+          image: AssetImage('assets/photos/background.png'),
+          fit: BoxFit.fill,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.only(left: 16.0, top: 56, right: 16),
@@ -23,7 +24,6 @@ class FeaturedListViewItem extends StatelessWidget {
             'Asian white noodle with extra seafood',
             style: Styles.textStyle22,
             maxLines: 2,
-
           ),
         ),
       ),
