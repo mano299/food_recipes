@@ -13,72 +13,64 @@ class HomrViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const CustomAppBar(),
-          const SizedBox(height: 24),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: Text(
-              'Featured',
-              style: Styles.textStyle26,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const CustomAppBar(),
+            const SizedBox(height: 24),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                'Featured',
+                style: Styles.textStyle26,
+              ),
             ),
-          ),
-          const SizedBox(height: 12),
-          const FeaturedListView(),
-          const SizedBox(height: 24),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Category',
-                  style: Styles.textStyle26,
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'See All',
-                    style: Styles.textStyle18.copyWith(
-                      color: kPrimaryColor,
+            const SizedBox(height: 12),
+            const FeaturedListView(),
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Category',
+                    style: Styles.textStyle26,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See All',
+                      style: Styles.textStyle18.copyWith(
+                        color: kPrimaryColor,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 12),
-          CategoryListView(),
-          SizedBox(height: 24),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Popular Recipes',
-                  style: Styles.textStyle26,
-                ),
-                SeeAllButton(),
-              ],
+            SizedBox(height: 12),
+            CategoryListView(),
+            SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Popular Recipes',
+                    style: Styles.textStyle26,
+                  ),
+                  SeeAllButton(),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 12),
-          
-        ],
+            SizedBox(height: 12),
+            
+          ],
+        ),
       ),
     );
-  }
-}
-
-
-class PopularListViewItem extends StatelessWidget {
-  const PopularListViewItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
