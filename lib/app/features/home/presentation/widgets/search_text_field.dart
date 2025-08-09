@@ -12,13 +12,13 @@ class searchTextField extends StatelessWidget {
       style: Styles.textStyle18(context),
       decoration: InputDecoration(
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(18),
               borderSide: BorderSide(color: Color(0xff969FAE), width: 2)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(18),
               borderSide: BorderSide(color: Color(0xff969FAE), width: 2)),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(18),
               borderSide:
                   BorderSide(color: Color.fromARGB(255, 36, 38, 42), width: 2)),
           prefixIcon: Icon(
