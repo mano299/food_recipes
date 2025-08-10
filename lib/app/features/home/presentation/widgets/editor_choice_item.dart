@@ -41,13 +41,13 @@ class EditorChoiceItem extends StatelessWidget {
         ),
         trailing: Container(
           padding: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Color(0xff0A2527)),
           child: Icon(
             Icons.arrow_forward_rounded,
             color: Colors.white,
           ),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Color(0xff0A2527)),
         ),
       ),
     );

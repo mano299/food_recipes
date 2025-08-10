@@ -11,7 +11,7 @@ import 'package:food_recipes/app/features/welcome/presentation/widgets/login_pag
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class RegisterPageBody extends StatefulWidget {
-  RegisterPageBody({
+  const RegisterPageBody({
     super.key,
   });
 

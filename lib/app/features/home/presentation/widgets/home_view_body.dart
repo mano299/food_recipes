@@ -6,7 +6,6 @@ import 'package:food_recipes/app/features/home/presentation/widgets/custom_app_b
 import 'package:food_recipes/app/features/home/presentation/widgets/featured_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/popular_list_view_item.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/populerRecipesHeader.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/see_all_button.dart';
 
 class HomrViewBody extends StatelessWidget {
   const HomrViewBody({super.key});
