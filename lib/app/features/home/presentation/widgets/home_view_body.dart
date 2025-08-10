@@ -27,6 +27,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        selectedIconTheme: IconThemeData(
+          color: kPrimaryColor,
+        ),
         currentIndex: currentIndex,
         onTap: (index) {
           setState(() {
@@ -103,9 +107,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 32,
-            )
+            
           ],
         ),
       ) : pages[currentIndex],
