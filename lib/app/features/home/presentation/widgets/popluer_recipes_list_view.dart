@@ -7,7 +7,7 @@ class PopluerRecipesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        padding: const EdgeInsets.only(left: 18.0),
+        padding: const EdgeInsets.only(left: 24.0),
         scrollDirection: Axis.horizontal,
         itemCount: 8,
         itemBuilder: (context, index) {

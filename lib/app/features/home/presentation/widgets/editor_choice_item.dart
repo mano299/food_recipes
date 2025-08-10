@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
 class EditorChoiceItem extends StatelessWidget {
@@ -7,7 +8,7 @@ class EditorChoiceItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120, // ارتفاع ثابت يناسب التصميم
+      height: 120, 
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -45,8 +46,8 @@ class EditorChoiceItem extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color(0xff0A2527),
-              borderRadius: BorderRadius.circular(12),
+              color: kTextColor,
+              borderRadius: BorderRadius.circular(16),
             ),
             child: const Icon(
               Icons.arrow_forward_rounded,

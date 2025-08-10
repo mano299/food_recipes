@@ -15,7 +15,7 @@ class SearchViewBody extends StatelessWidget {
       slivers: [
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             child: searchTextField(),
           ),
         ),
@@ -27,7 +27,7 @@ class SearchViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: PopularRecipesHeader(),
           ),
         ),
@@ -41,7 +41,7 @@ class SearchViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12),
             child: EditorsChoiceHeader(),
           ),
         ),
