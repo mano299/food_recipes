@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/category_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/editor_choice_item.dart';
+import 'package:food_recipes/app/features/home/presentation/widgets/editor_choice_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/editors_choice_header.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/popluer_recipes_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/populerRecipesHeader.dart';
@@ -14,32 +15,46 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-          child: searchTextField(),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+            child: searchTextField(),
+          ),
         ),
-        CategoryListView(),
-        SizedBox(
-          height: 30,
+        SliverToBoxAdapter(child: CategoryListView()),
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: 30,
+          ),
         ),
-        Padding(
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+            child: PopularRecipesHeader(),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: 20,
+          ),
+        ),
+        SliverToBoxAdapter(
+            child: SizedBox(
+                height: 150, child: Expanded(child: PopluerRecipesListView()))),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 12),
+            child: EditorsChoiceHeader(),
+          ),
+        ),
+        SliverToBoxAdapter(
+            child: Expanded(
+                child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18.0),
-          child: PopularRecipesHeader(),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        SizedBox(height: 150, child: Expanded(child: PopluerRecipesListView())),
-        SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
-          child: EditorsChoiceHeader(),
-        ),
-        EditorChoiceItem()
+          child: editorChoiceListView(),
+        ))),
       ],
     );
   }
