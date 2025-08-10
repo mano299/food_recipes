@@ -11,8 +11,9 @@ class PopularRecipesItem extends StatelessWidget {
       width: 110,
       decoration: BoxDecoration(
           // boxShadow: [BoxShadow()],
+          
           color: Colors.white,
-          borderRadius: BorderRadius.circular(12)),
+          borderRadius: BorderRadius.circular(16)),
       child: Column(
         children: [
           Image.asset("assets/photos/Image 1.png"),

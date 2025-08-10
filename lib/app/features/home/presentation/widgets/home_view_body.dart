@@ -7,8 +7,8 @@ import 'package:food_recipes/app/features/home/presentation/widgets/featured_lis
 import 'package:food_recipes/app/features/home/presentation/widgets/popular_list_view_item.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/populerRecipesHeader.dart';
 
-class HomrViewBody extends StatelessWidget {
-  const HomrViewBody({super.key});
+class HomeViewBody extends StatelessWidget {
+  const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

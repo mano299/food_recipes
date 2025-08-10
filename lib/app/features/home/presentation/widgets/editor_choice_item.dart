@@ -7,48 +7,54 @@ class EditorChoiceItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 120, // ارتفاع ثابت يناسب التصميم
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.shade200,
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
       ),
-      child: ListTile(
-        leading: Image.asset(
-          "assets/photos/editor.png",
-          height: 84,
-        ),
-        title: Text(
-          "Easy homemade beef burger",
-          style: Styles.textStyle18(context),
-        ),
-        subtitle: Row(
-          children: [
-            SizedBox(
-                height: 20,
-                child: Image.asset(
-                  "assets/photos/james.png",
-                  fit: BoxFit.fill,
-                )),
-            Text(" James Spader"),
-          ],
-        ),
-        trailing: Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Color(0xff0A2527)),
-          child: Icon(
-            Icons.arrow_forward_rounded,
-            color: Colors.white,
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.asset(
+              "assets/photos/editor.png",
+              height: 100,
+              width: 120,
+              fit: BoxFit.fill,
+            ),
           ),
-        ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              "Easy homemade beef burger",
+              style: Styles.textStyle18(context),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          const SizedBox(width: 16),
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: const Color(0xff0A2527),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: const Icon(
+              Icons.arrow_forward_rounded,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
+        ],
       ),
     );
   }

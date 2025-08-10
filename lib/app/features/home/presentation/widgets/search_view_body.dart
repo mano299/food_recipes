@@ -22,7 +22,7 @@ class SearchViewBody extends StatelessWidget {
         SliverToBoxAdapter(child: CategoryListView()),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 30,
+            height: 24,
           ),
         ),
         SliverToBoxAdapter(
@@ -33,12 +33,12 @@ class SearchViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 20,
+            height: 12,
           ),
         ),
         SliverToBoxAdapter(
-            child: SizedBox(
-                height: 150, child: Expanded(child: PopluerRecipesListView()))),
+          child: SizedBox(height: 150, child: PopluerRecipesListView()),
+        ),
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 12),
@@ -46,11 +46,10 @@ class SearchViewBody extends StatelessWidget {
           ),
         ),
         SliverToBoxAdapter(
-            child: Expanded(
-                child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
-          child: editorChoiceListView(),
-        ))),
+            child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                      child: editorChoiceListView(),
+                    )),
       ],
     );
   }

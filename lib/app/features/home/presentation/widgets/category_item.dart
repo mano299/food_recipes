@@ -12,7 +12,7 @@ class CategoryItem extends StatelessWidget {
       width: 119,
       decoration: BoxDecoration(
         color: isSelected ? kPrimaryColor : Color(0xffF1F5F5),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(32),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
