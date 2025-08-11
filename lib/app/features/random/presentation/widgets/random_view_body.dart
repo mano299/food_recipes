@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/random/presentation/widgets/random_custom_button.dart';
 import 'package:food_recipes/app/features/random/presentation/widgets/random_meal_card.dart';
 
 class RandomViewBody extends StatelessWidget {
@@ -22,9 +23,14 @@ class RandomViewBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RandomMealCard(),
+            SizedBox(height: 24),
+            RandomCustomButton(
+              text: 'Generate Random Meal',
+            ),
           ],
         ),
       ),
     );
   }
 }
+
