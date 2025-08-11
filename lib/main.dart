@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_recipes/app/features/home/presentation/home_view.dart';
-import 'package:food_recipes/app/features/splash/presentation/splash_view.dart';
 import 'package:food_recipes/app/features/welcome/presentation/cubit/Register_cubit/register_cubit.dart';
 import 'package:food_recipes/app/features/welcome/presentation/cubit/login_cubits/login_cubit.dart';
 import 'package:food_recipes/app/features/welcome/presentation/login_page.dart';
