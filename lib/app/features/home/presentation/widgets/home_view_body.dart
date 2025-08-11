@@ -8,6 +8,7 @@ import 'package:food_recipes/app/features/home/presentation/widgets/custom_app_b
 import 'package:food_recipes/app/features/home/presentation/widgets/featured_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/popular_list_view_item.dart';
 import 'package:food_recipes/app/features/home/presentation/widgets/populerRecipesHeader.dart';
+import 'package:food_recipes/app/features/random/presentation/random_view.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -22,7 +23,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   final List<Widget> pages = [
     const HomeView(),
     const SearchView(),
-    const Center(child: Text('Random Meal'),),
+    const RandomView(),
     const HomeView(),
   ];
   @override
