@@ -73,6 +73,7 @@ class RegisterPageBody extends StatelessWidget {
                       },
                     ),
                     Customtextfield(
+                      obscureText: true,
                       hint: "Strong Password",
                       icon: Icons.lock_outline,
                       onChanged: (value) {

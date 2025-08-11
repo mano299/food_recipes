@@ -57,6 +57,7 @@ class LoginPageBody extends StatelessWidget {
                       },
                     ),
                     Customtextfield(
+                      obscureText: true,
                       hint: "Password",
                       icon: Icons.lock_outline,
                       onChanged: (value) {
