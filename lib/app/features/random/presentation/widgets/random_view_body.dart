@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/random/presentation/widgets/random_meal_card.dart';
 
 class RandomViewBody extends StatelessWidget {
   const RandomViewBody({super.key});
@@ -14,6 +15,14 @@ class RandomViewBody extends StatelessWidget {
         title: Text(
           'Random Meal',
           style: Styles.textStyle28(context).copyWith(color: Colors.white),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RandomMealCard(),
+          ],
         ),
       ),
     );
