@@ -22,15 +22,25 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   final List<Widget> pages = [
     const HomeView(),
     const SearchView(),
+    const Center(child: Text('Random Meal'),),
+    const HomeView(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
+        iconSize: 26,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        unselectedIconTheme: IconThemeData(
+          color: Colors.black,
+          size: 22,
+        ),
         selectedIconTheme: IconThemeData(
           color: kPrimaryColor,
+          size: 28,
         ),
+        backgroundColor: Colors.white,
         currentIndex: currentIndex,
         onTap: (index) {
           setState(() {
@@ -40,11 +50,19 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            label: 'Search',
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.radar),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_pin),
+            label: '',
           ),
         ],
       ),
