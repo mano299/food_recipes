@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/features/home/presentation/home_view.dart';
 import 'package:food_recipes/app/features/splash/presentation/splash_view.dart';
+import 'package:food_recipes/app/features/welcome/presentation/cubit/login_cubit.dart';
+import 'package:food_recipes/app/features/welcome/presentation/login_page.dart';
 import 'package:food_recipes/firebase_options.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,13 +21,20 @@ class FoodRecipe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Food Recipe',
-      theme: ThemeData(
-        textTheme: GoogleFonts.latoTextTheme(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LoginCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Food Recipe',
+        theme: ThemeData(
+          textTheme: GoogleFonts.latoTextTheme(),
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const LoginPage(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: const HomeView(),
     );
   }
 }

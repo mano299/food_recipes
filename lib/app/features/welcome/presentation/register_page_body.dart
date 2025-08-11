@@ -7,7 +7,7 @@ import 'package:food_recipes/app/core/utils/function/show_snak_bar.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_button.dart';
 import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:food_recipes/app/features/welcome/presentation/widgets/login_page.dart';
+import 'package:food_recipes/app/features/welcome/presentation/login_page.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class RegisterPageBody extends StatefulWidget {

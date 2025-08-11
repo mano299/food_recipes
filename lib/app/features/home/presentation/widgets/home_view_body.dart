@@ -25,7 +25,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     const HomeView(),
     const SearchView(),
     const RandomView(),
-    const Center(child: Text('Profile'),),
+    const Center(
+      child: Text('Profile'),
+    ),
   ];
 
   @override
@@ -34,9 +36,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
+          if (index != currentIndex) {
+            setState(() {
+              currentIndex = index;
+            });
+          }
         },
       ),
       backgroundColor: Colors.white,
