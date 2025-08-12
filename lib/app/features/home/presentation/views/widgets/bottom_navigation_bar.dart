@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
@@ -13,39 +14,55 @@ class CustomBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      iconSize: 26,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      unselectedIconTheme: IconThemeData(
-        color: Colors.black,
-        size: 22,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(32),
+          topRight: Radius.circular(32),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            spreadRadius: 0,
+            blurRadius: 10,
+          ),
+        ],
       ),
-      selectedIconTheme: IconThemeData(
-        color: kPrimaryColor,
-        size: 28,
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(32),
+          topRight: Radius.circular(32),
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.white,
+          selectedItemColor: kPrimaryColor, 
+          unselectedItemColor: Colors.grey.shade400,
+          currentIndex: currentIndex,
+          onTap: onTap,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.house),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.magnifyingGlass),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.diceFive),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.solidUser),
+              label: '',
+            ),
+          ],
+        ),
       ),
-      backgroundColor: Colors.white,
-      currentIndex: currentIndex,
-      onTap: onTap,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.radar),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_pin),
-          label: '',
-        ),
-      ],
     );
   }
 }

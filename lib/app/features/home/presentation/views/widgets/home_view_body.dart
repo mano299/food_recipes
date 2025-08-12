@@ -9,6 +9,7 @@ import 'package:food_recipes/app/features/home/presentation/views/widgets/custom
 import 'package:food_recipes/app/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/popular_list_view_item.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/populerRecipesHeader.dart';
+import 'package:food_recipes/app/features/profile/presentation/profile_view.dart';
 import 'package:food_recipes/app/features/random/presentation/views/random_view.dart';
 
 class HomeViewBody extends StatefulWidget {
@@ -25,14 +26,13 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     const HomeView(),
     const SearchView(),
     const RandomView(),
-    const Center(
-      child: Text('Profile'),
-    ),
+    const ProfileView(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index) {
