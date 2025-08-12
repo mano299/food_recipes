@@ -18,8 +18,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(32),
-          topRight: Radius.circular(32),
+          topLeft: Radius.circular(24),
+          topRight: Radius.circular(24),
         ),
         boxShadow: [
           BoxShadow(
@@ -31,8 +31,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(32),
-          topRight: Radius.circular(32),
+          topLeft: Radius.circular(24),
+          topRight: Radius.circular(24),
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,

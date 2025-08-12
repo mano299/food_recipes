@@ -9,6 +9,7 @@ class RandomMealCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
+        
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -19,7 +20,7 @@ class RandomMealCard extends StatelessWidget {
         ],
       ),
       child: Card(
-        
+        color: Colors.white,
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(16)),

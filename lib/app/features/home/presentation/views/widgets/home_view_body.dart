@@ -103,6 +103,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                       ),
                     ),
                   ),
+                  SizedBox(height: 12),
                 ],
               ),
             )
