@@ -10,6 +10,7 @@ class SearchView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xffF5F5F5),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
