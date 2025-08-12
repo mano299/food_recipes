@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/category_item.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/category_item.dart';
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({super.key});
@@ -9,7 +9,7 @@ class CategoryListView extends StatefulWidget {
 }
 
 class _CategoryListViewState extends State<CategoryListView> {
-  int selectedIndex  = 0;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,12 +20,14 @@ class _CategoryListViewState extends State<CategoryListView> {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return GestureDetector(
-              onTap: (){
+              onTap: () {
                 setState(() {
                   selectedIndex = index;
                 });
               },
-              child: CategoryItem(isSelected: selectedIndex == index,),
+              child: CategoryItem(
+                isSelected: selectedIndex == index,
+              ),
             );
           },
           separatorBuilder: (context, index) {

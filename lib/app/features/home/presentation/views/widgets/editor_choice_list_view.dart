@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/editor_choice_item.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/editor_choice_item.dart';
 
 class editorChoiceListView extends StatelessWidget {
   const editorChoiceListView({super.key});

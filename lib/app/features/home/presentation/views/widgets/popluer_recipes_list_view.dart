@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/populer_recipes_item.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/populer_recipes_item.dart';
 
 class PopluerRecipesListView extends StatelessWidget {
   const PopluerRecipesListView({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/featured_list_view_item.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/featured_list_view_item.dart';
 
 class FeaturedListView extends StatelessWidget {
   const FeaturedListView({super.key});

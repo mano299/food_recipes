@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
-import 'package:food_recipes/app/features/random/presentation/widgets/random_custom_button.dart';
-import 'package:food_recipes/app/features/random/presentation/widgets/random_meal_card.dart';
+import 'package:food_recipes/app/features/random/presentation/views/widgets/random_custom_button.dart';
+import 'package:food_recipes/app/features/random/presentation/views/widgets/random_meal_card.dart';
 
 class RandomViewBody extends StatelessWidget {
   const RandomViewBody({super.key});
@@ -33,4 +33,3 @@ class RandomViewBody extends StatelessWidget {
     );
   }
 }
-

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:food_recipes/app/features/welcome/presentation/widgets/welcome_view_body.dart';
+import 'package:food_recipes/app/features/welcome/presentation/views/widgets/welcome_view_body.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});

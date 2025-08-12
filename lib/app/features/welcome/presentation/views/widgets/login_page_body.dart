@@ -1,19 +1,18 @@
-import 'dart:developer';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_recipes/app/core/utils/function/show_snak_bar.dart';
-import 'package:food_recipes/app/features/welcome/presentation/cubit/Register_cubit/register_cubit.dart';
-import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_button.dart';
-import 'package:food_recipes/app/features/welcome/presentation/widgets/custom_text_field.dart';
+import 'package:food_recipes/app/features/home/presentation/views/home_view.dart';
+import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_cubit.dart';
+import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_state.dart';
+import 'package:food_recipes/app/features/welcome/presentation/views/widgets/custom_button.dart';
+import 'package:food_recipes/app/features/welcome/presentation/views/widgets/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:food_recipes/app/features/welcome/presentation/login_page.dart';
+import 'package:food_recipes/app/features/welcome/presentation/views/register_page.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class RegisterPageBody extends StatelessWidget {
-  RegisterPageBody({
+class LoginPageBody extends StatelessWidget {
+  LoginPageBody({
     super.key,
   });
 
@@ -25,17 +24,16 @@ class RegisterPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is RegisterLoading) {
+        if (state is LoginLoading) {
           isLoading = true;
-        } else if (state is RegisterSuccess) {
+        } else if (state is LoginSuccess) {
           isLoading = false;
-          ShowSnakBar(context, "Success Register ,Now You Can Login");
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return LoginPage();
+            return HomeView();
           }));
-        } else if (state is RegisterFailure) {
+        } else if (state is LoginFailure) {
           isLoading = false;
           ShowSnakBar(context, state.errMessage);
         }
@@ -52,29 +50,15 @@ class RegisterPageBody extends StatelessWidget {
                   children: [
                     SvgPicture.asset("assets/photos/foodLogo.svg"),
                     Customtextfield(
-                      hint: "Full Name",
-                      icon: Icons.person,
-                      onChanged: (value) {
-                        name = value;
-                      },
-                    ),
-                    Customtextfield(
-                      hint: "Valied Email",
+                      hint: "Email",
                       icon: Icons.email,
                       onChanged: (value) {
                         email = value;
                       },
                     ),
                     Customtextfield(
-                      hint: "Phone Number",
-                      icon: Icons.phone_iphone_outlined,
-                      onChanged: (value) {
-                        phoneNumber = value;
-                      },
-                    ),
-                    Customtextfield(
                       obscureText: true,
-                      hint: "Strong Password",
+                      hint: "Password",
                       icon: Icons.lock_outline,
                       onChanged: (value) {
                         password = value;
@@ -83,46 +67,43 @@ class RegisterPageBody extends StatelessWidget {
                     SizedBox(
                       height: 50,
                     ),
+                    SizedBox(
+                      height: MediaQuery.sizeOf(context).height * .15,
+                    ),
                     CustomButton(
-                      label: "Register",
+                      label: "Login",
                       onTap: () async {
                         if (formKey.currentState!.validate()) {
-                          BlocProvider.of<RegisterCubit>(context).RegisterUser(
-                              email: email!,
-                              password: password!,
-                              name: name!,
-                              phoneNumber: phoneNumber!);
-
                           // setState(() {
                           //   isLoading = true;
                           // });
                           // try {
-                          //   await RegisterUser();
-                          //   ShowSnakBar(
-                          //       context, "Success Register and saving data");
+                          //   await LoginUser();
+                          //   (context, "SUCCESSFUL");
+                          //   Navigator.push(context,
+                          //       MaterialPageRoute(builder: (context) {
+                          //     return HomeView();
+                          //   }));
                           //   setState(() {
                           //     isLoading = false;
                           //   });
                           // } on FirebaseAuthException catch (e) {
-                          //   if (e.code == 'weak-password') {
+                          //   if (e.code == 'user-not-found') {
                           //     ShowSnakBar(
-                          //         context, 'The password provided is too weak.');
-                          //     setState(() {
-                          //       isLoading = false;
-                          //     });
-                          //   } else if (e.code == 'email-already-in-use') {
+                          //         context, 'No user found for that email.');
+                          //   } else if (e.code == 'wrong-password') {
                           //     ShowSnakBar(context,
-                          //         'The account already exists for that email.');
-                          //     setState(() {
-                          //       isLoading = false;
-                          //     });
+                          //         'Wrong password provided for that user.');
                           //   }
                           // } catch (e) {
-                          //   print(e);
-                          //   setState(() {
-                          //     isLoading = false;
-                          //   });
+                          //   ShowSnakBar(context, e.toString());
                           // }
+                          // setState(() {
+                          //   isLoading = false;
+                          // });
+
+                          BlocProvider.of<LoginCubit>(context)
+                              .LoginUser(email: email!, password: password!);
                         }
                       },
                     ),
@@ -133,7 +114,7 @@ class RegisterPageBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Already a member ",
+                          "Don't have an account ",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -143,11 +124,11 @@ class RegisterPageBody extends StatelessWidget {
                             onTap: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
-                                return LoginPage();
+                                return RegisterPage();
                               }));
                             },
                             child: Text(
-                              "Login",
+                              "Register",
                               style: TextStyle(
                                   color: Color(0xff0A2527),
                                   fontSize: 16,
@@ -168,20 +149,11 @@ class RegisterPageBody extends StatelessWidget {
     );
   }
 
-  Future<void> RegisterUser() async {
-    UserCredential userCredential =
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: email!,
-      password: password!,
-    );
-
-    String uid = userCredential.user!.uid;
-    await FirebaseFirestore.instance.collection('users').doc(uid).set({
-      "FullName": name,
-      "PhoneNumber": phoneNumber,
-      "Email": email,
-      "createdAt": FieldValue.serverTimestamp(),
-    });
-    log("✅ User data saved in Firestore with UID: $uid");
-  }
+  // Future<void> LoginUser() async {
+  //   UserCredential userCredential =
+  //       await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //     email: email!,
+  //     password: password!,
+  //   );
+  // }
 }

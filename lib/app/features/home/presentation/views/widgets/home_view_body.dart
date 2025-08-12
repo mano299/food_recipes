@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
-import 'package:food_recipes/app/features/home/presentation/home_view.dart';
-import 'package:food_recipes/app/features/home/presentation/search_view.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/bottom_navigation_bar.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/category_list_view.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/custom_app_bar.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/featured_list_view.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/popular_list_view_item.dart';
-import 'package:food_recipes/app/features/home/presentation/widgets/populerRecipesHeader.dart';
-import 'package:food_recipes/app/features/random/presentation/random_view.dart';
+import 'package:food_recipes/app/features/home/presentation/views/home_view.dart';
+import 'package:food_recipes/app/features/home/presentation/views/search_view.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/bottom_navigation_bar.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/category_list_view.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/featured_list_view.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/popular_list_view_item.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/populerRecipesHeader.dart';
+import 'package:food_recipes/app/features/random/presentation/views/random_view.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
