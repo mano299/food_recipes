@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/profile/presentation/widgets/user_info.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({super.key});
@@ -9,28 +10,40 @@ class ProfileViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: profileAppBar(context),
         backgroundColor: Colors.white,
+        appBar: profileAppBar(context),
+        body: Column(
+          children: [
+            SizedBox(height: 32),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: UserInfo(),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   AppBar profileAppBar(BuildContext context) {
     return AppBar(
-        titleSpacing: 24,
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        title: Text(
-          'Account',
-          style: Styles.textStyle24(context)
-              .copyWith(fontWeight: FontWeight.w800),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 24.0),
-            child: Icon(FontAwesomeIcons.gear, color: Colors.black,),
-          )
-        ],
-      );
+      titleSpacing: 24,
+      automaticallyImplyLeading: false,
+      backgroundColor: Colors.white,
+      title: Text(
+        'Account',
+        style:
+            Styles.textStyle24(context).copyWith(fontWeight: FontWeight.w800),
+      ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 24.0),
+          child: Icon(
+            FontAwesomeIcons.gear,
+            color: Colors.black,
+          ),
+        )
+      ],
+    );
   }
 }
