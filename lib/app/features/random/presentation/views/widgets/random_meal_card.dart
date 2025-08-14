@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
@@ -9,7 +8,6 @@ class RandomMealCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -32,13 +30,18 @@ class RandomMealCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(16)),
                 child: Image(
-                  image: AssetImage('assets/photos/Image 1.png',),
+                  image: AssetImage(
+                    'assets/photos/Image 1.png',
+                  ),
                   height: MediaQuery.of(context).size.height * 0.3,
                   width: MediaQuery.of(context).size.width * 0.7,
                 ),
               ),
               SizedBox(height: 8),
-              Text('Sunny Egg & Toast Avocado', style: Styles.textStyle18(context),)
+              Text(
+                'Sunny Egg & Toast Avocado',
+                style: Styles.textStyle18(context),
+              )
             ],
           ),
         ),

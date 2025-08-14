@@ -72,5 +72,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'recipe-food-c74ff.firebasestorage.app',
     iosBundleId: 'com.example.foodRecipes',
   );
-
 }

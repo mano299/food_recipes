@@ -25,6 +25,7 @@ abstract class Styles {
       color: kTextColor,
     );
   }
+
   static TextStyle textStyle24(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 24),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+
 class FavoriteGridViewItem extends StatelessWidget {
   const FavoriteGridViewItem({super.key});
 
@@ -22,7 +23,7 @@ class FavoriteGridViewItem extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,  
+        mainAxisSize: MainAxisSize.min,
         children: [
           Stack(
             children: [
@@ -32,7 +33,7 @@ class FavoriteGridViewItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(32),
                   child: Image.asset(
                     'assets/photos/foodtTest.jpeg',
-                    height: 110,  
+                    height: 110,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -57,7 +58,7 @@ class FavoriteGridViewItem extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4), 
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             child: Text(
               'Healthy Taco Salad with fresh vegetable',
               maxLines: 2,
@@ -66,10 +67,11 @@ class FavoriteGridViewItem extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2), // قللت التباعد
+            padding: const EdgeInsets.symmetric(
+                horizontal: 8.0, vertical: 2), // قللت التباعد
             child: Row(
               children: [
-                Icon(Icons.location_on, size: 16), 
+                Icon(Icons.location_on, size: 16),
                 SizedBox(width: 4),
                 Text(
                   'Italian',

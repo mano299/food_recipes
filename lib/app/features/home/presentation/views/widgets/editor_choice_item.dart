@@ -8,7 +8,7 @@ class EditorChoiceItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120, 
+      height: 120,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
