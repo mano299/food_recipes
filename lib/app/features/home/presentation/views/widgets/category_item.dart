@@ -3,8 +3,10 @@ import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key, this.isSelected = false});
+  const CategoryItem(
+      {super.key, this.isSelected = false, required this.categoey});
   final bool isSelected;
+  final String categoey;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +20,7 @@ class CategoryItem extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Center(
             child: Text(
-          'Breakfast',
+          categoey,
           style: isSelected
               ? Styles.textStyle14(context).copyWith(color: Colors.white)
               : Styles.textStyle14(context),

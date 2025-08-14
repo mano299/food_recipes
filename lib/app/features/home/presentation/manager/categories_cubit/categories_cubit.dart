@@ -8,15 +8,19 @@ part 'categories_state.dart';
 class CategoriesCubit extends Cubit<CategoriesState> {
   CategoriesCubit(this.homeRepo) : super(CategoriesInitial());
   final HomeRepo homeRepo;
-  List<CategoriesModel> categories = [];
+  // List<CategoriesModel> categories = [];
   Future<void> fetchCategories() async {
     emit(CategoriesLoading());
     var result = await homeRepo.fetchCategories();
+    print("Result from repo: $result");
+    print("Result from repo: $result");
+    print("Result from repo: $result");
+    print("Result from repo: $result");
+
     result.fold((failure) {
       emit(CategoriesFailure(failure.errMessage));
-    }, (Categories) {
-      emit(CategoriesSuccess());
-      categories = Categories;
+    }, (categoriesList) {
+      emit(CategoriesSuccess(categoriesList));
     });
   }
 }

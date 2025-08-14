@@ -9,7 +9,13 @@ sealed class CategoriesState extends Equatable {
 
 final class CategoriesInitial extends CategoriesState {}
 
-final class CategoriesSuccess extends CategoriesState {}
+final class CategoriesSuccess extends CategoriesState {
+  final List<CategoriesModel> categories;
+  const CategoriesSuccess(this.categories);
+
+  @override
+  List<Object> get props => [categories];
+}
 
 final class CategoriesLoading extends CategoriesState {}
 

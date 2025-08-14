@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:food_recipes/app/core/error/failure.dart';
@@ -14,9 +16,10 @@ class HomeRepoImpl implements HomeRepo {
     try {
       dynamic data = await apiService.get(endPoint: "list.php?c=list");
       List<CategoriesModel> categories = [];
-      for (var item in data[0]) {
+      for (var item in data["meals"]) {
         categories.add(CategoriesModel.fromJson(item));
       }
+
       return right(categories);
     } on Exception catch (e) {
       if (e is DioException) {
