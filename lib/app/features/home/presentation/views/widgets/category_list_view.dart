@@ -45,12 +45,14 @@ class _CategoryListViewState extends State<CategoryListView> {
             ),
           );
         } else if (state is CategoriesFailure) {
-          return Text(
-            state.errMesage,
-            style: Styles.textStyle21(context),
+          return Center(
+            child: Text(
+              state.errMesage,
+              style: Styles.textStyle21(context),
+            ),
           );
         } else {
-          return CircularProgressIndicator();
+          return Center(child: CircularProgressIndicator());
         }
       },
     );
