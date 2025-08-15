@@ -30,9 +30,6 @@ class FoodRecipe extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => LoginCubit()),
         BlocProvider(create: (context) => RegisterCubit()),
-        BlocProvider(
-            create: (context) =>
-                CategoriesCubit(getIt.get<HomeRepoImpl>())..fetchCategories()),
       ],
       child: MaterialApp(
         title: 'Food Recipe',

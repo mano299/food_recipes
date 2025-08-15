@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes/app/core/utils/service_locator.dart';
+import 'package:food_recipes/app/features/home/data/repo/home_repo_impl.dart';
+import 'package:food_recipes/app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,6 +10,10 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeViewBody();
+    return BlocProvider(
+      create: (context) =>
+          CategoriesCubit(getIt.get<HomeRepoImpl>())..fetchCategories(),
+      child: const HomeViewBody(),
+    );
   }
 }
