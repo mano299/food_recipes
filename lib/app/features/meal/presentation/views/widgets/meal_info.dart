@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingr_and_inst.dart';
+import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingredients_header.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/splitter.dart';
 
 class MealInfo extends StatelessWidget {
@@ -17,17 +18,17 @@ class MealInfo extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 12),
-              Splitter(),
-              SizedBox(height: 8),
               Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Healthy Taco Salad',
-                  style: Styles.textStyle21(context),
-                ),
+                alignment: Alignment.center,
+                child: Splitter(),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Healthy Taco Salad',
+                style: Styles.textStyle21(context),
               ),
               SizedBox(height: 6),
               Text(
@@ -36,7 +37,9 @@ class MealInfo extends StatelessWidget {
                     .copyWith(color: Color(0xff748189)),
               ),
               SizedBox(height: 16),
-              IngredientsAndInstructions()
+              IngredientsAndInstructions(),
+              SizedBox(height: 16),
+              IngredientsHeader()
             ],
           ),
         ),
