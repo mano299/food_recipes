@@ -13,6 +13,7 @@ class TopPhoto extends StatelessWidget {
         'assets/photos/testFood.png',
         height: 300,
         width: double.infinity,
+        fit: BoxFit.contain,
       ),
     );
   }
