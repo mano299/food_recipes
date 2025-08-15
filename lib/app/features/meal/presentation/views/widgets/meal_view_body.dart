@@ -13,7 +13,6 @@ class MealViewBody extends StatelessWidget {
         children: [
           TopPhoto(),
           MealInfo(),
-          
         ],
       ),
     );
