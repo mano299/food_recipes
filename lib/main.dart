@@ -8,7 +8,6 @@ import 'package:food_recipes/app/features/home/presentation/manager/categories_c
 import 'package:food_recipes/app/features/home/presentation/views/home_view.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/Register_cubit/register_cubit.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_cubit.dart';
-import 'package:food_recipes/app/features/welcome/presentation/views/login_page.dart';
 import 'package:food_recipes/firebase_options.dart';
 import 'package:google_fonts/google_fonts.dart';
 

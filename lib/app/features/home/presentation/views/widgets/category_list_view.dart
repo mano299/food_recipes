@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_recipes/app/core/error/failure.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
-import 'package:food_recipes/app/features/home/data/models/categories_model.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/category_item.dart';
 

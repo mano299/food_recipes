@@ -7,7 +7,6 @@ import 'package:food_recipes/app/features/welcome/presentation/manager/login_cub
 import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_state.dart';
 import 'package:food_recipes/app/features/welcome/presentation/views/widgets/custom_button.dart';
 import 'package:food_recipes/app/features/welcome/presentation/views/widgets/custom_text_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:food_recipes/app/features/welcome/presentation/views/register_page.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
