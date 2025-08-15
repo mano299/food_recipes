@@ -11,10 +11,6 @@ class CategoriesCubit extends Cubit<CategoriesState> {
   Future<void> fetchCategories() async {
     emit(CategoriesLoading());
     var result = await homeRepo.fetchCategories();
-    print("Result from repo: $result");
-    print("Result from repo: $result");
-    print("Result from repo: $result");
-    print("Result from repo: $result");
 
     result.fold((failure) {
       emit(CategoriesFailure(failure.errMessage));
