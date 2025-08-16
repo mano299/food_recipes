@@ -13,13 +13,13 @@ class MealInfo extends StatelessWidget {
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.black26,
               blurRadius: 8,
-              offset: Offset(0, 4),
+              offset: Offset(0, 3),
             ),
           ],
         ),

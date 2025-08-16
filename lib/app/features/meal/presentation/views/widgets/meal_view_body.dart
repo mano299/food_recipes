@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipes/app/features/meal/presentation/views/widgets/back_icon.dart';
+import 'package:food_recipes/app/features/meal/presentation/views/widgets/favorite_icon.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/meal_info.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/top_photo.dart';
 
@@ -11,7 +13,21 @@ class MealViewBody extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          TopPhoto(),
+          Stack(
+            children: [
+              TopPhoto(),
+              Positioned(
+                top: 40,
+                left: 16,
+                child: BackIcon()
+              ),
+              Positioned(
+                top: 40,
+                right: 16,
+                child: FavoriteIcon()
+              ),
+            ],
+          ),
           MealInfo(),
         ],
       ),
