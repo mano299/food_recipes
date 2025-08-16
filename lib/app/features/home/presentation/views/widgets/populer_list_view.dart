@@ -15,7 +15,7 @@ class PopulerListView extends StatelessWidget {
       builder: (context, state) {
         if (state is getMealSuccess) {
           return ListView.builder(
-            itemCount: state.meals.length,
+            itemCount: 10,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return PopularListViewItem(

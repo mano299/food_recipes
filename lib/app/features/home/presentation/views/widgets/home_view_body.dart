@@ -7,7 +7,6 @@ import 'package:food_recipes/app/features/home/presentation/views/widgets/bottom
 import 'package:food_recipes/app/features/home/presentation/views/widgets/category_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/featured_list_view.dart';
-import 'package:food_recipes/app/features/home/presentation/views/widgets/popular_list_view_item.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/populerRecipesHeader.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/populer_list_view.dart';
 import 'package:food_recipes/app/features/profile/presentation/profile_view.dart';
