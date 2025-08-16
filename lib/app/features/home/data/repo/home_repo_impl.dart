@@ -29,6 +29,7 @@ class HomeRepoImpl implements HomeRepo {
     }
   }
 
+  //String category;
   @override
   Future<Either<Failure, List<MealModel>>> getMealsByCategory() async {
     try {
