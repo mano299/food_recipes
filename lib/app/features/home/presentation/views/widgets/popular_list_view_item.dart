@@ -5,9 +5,17 @@ import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
 
-class PopularListViewItem extends StatelessWidget {
-  const PopularListViewItem({super.key, required this.mealModel});
+class PopularListViewItem extends StatefulWidget {
+  PopularListViewItem({super.key, required this.mealModel});
   final MealModel mealModel;
+
+  @override
+  State<PopularListViewItem> createState() => _PopularListViewItemState();
+}
+
+class _PopularListViewItemState extends State<PopularListViewItem> {
+  bool fav = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -39,15 +47,18 @@ class PopularListViewItem extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8),
-                  child: CachedNetworkImage(
-                    imageUrl: mealModel.mealImage ??
-                        "https://folkways.today/wp-content/uploads/2022/06/iStock-1156340508.jpg",
-                    placeholder: (context, url) =>
-                        Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                    height: 140,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(32),
+                    child: CachedNetworkImage(
+                      imageUrl: widget.mealModel.mealImage ??
+                          "https://folkways.today/wp-content/uploads/2022/06/iStock-1156340508.jpg",
+                      placeholder: (context, url) =>
+                          Center(child: CircularProgressIndicator()),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      height: 140,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Positioned(
@@ -59,10 +70,16 @@ class PopularListViewItem extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Icon(
-                      Icons.favorite_border,
-                      size: 24,
-                      color: Colors.black,
+                    child: GestureDetector(
+                      onTap: () {
+                        fav = !fav;
+                        setState(() {});
+                      },
+                      child: Icon(
+                        Icons.favorite,
+                        size: 24,
+                        color: fav ? Colors.red : Colors.grey,
+                      ),
                     ),
                   ),
                 ),
@@ -71,7 +88,7 @@ class PopularListViewItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                mealModel.mealName,
+                widget.mealModel.mealName,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Styles.textStyle18(context).copyWith(color: kTextColor),
