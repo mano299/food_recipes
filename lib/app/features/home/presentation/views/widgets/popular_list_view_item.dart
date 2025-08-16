@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
 
 class PopularListViewItem extends StatelessWidget {
-  const PopularListViewItem({super.key});
-
+  const PopularListViewItem({super.key, required this.mealModel});
+  final MealModel mealModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -39,8 +40,8 @@ class PopularListViewItem extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(32),
-                    child: Image.asset(
-                      'assets/photos/foodtTest.jpeg',
+                    child: Image.network(
+                      mealModel.mealImage,
                       height: 140,
                       width: double.infinity,
                       fit: BoxFit.cover,
@@ -68,7 +69,7 @@ class PopularListViewItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                'Healthy Taco Salad with fresh vegetable',
+                mealModel.mealName,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Styles.textStyle18(context).copyWith(color: kTextColor),

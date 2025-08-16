@@ -9,6 +9,7 @@ import 'package:food_recipes/app/features/home/presentation/views/widgets/custom
 import 'package:food_recipes/app/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/popular_list_view_item.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/populerRecipesHeader.dart';
+import 'package:food_recipes/app/features/home/presentation/views/widgets/populer_list_view.dart';
 import 'package:food_recipes/app/features/profile/presentation/profile_view.dart';
 import 'package:food_recipes/app/features/random/presentation/views/random_view.dart';
 
@@ -93,13 +94,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     height: 270,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 24.0),
-                      child: ListView.builder(
-                        itemCount: 5,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return const PopularListViewItem();
-                        },
-                      ),
+                      child: PopulerListView(),
                     ),
                   ),
                   SizedBox(height: 12),

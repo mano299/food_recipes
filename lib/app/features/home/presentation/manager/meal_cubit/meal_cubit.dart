@@ -9,7 +9,7 @@ class MealCubit extends Cubit<MealState> {
   MealCubit(this.homeRepo) : super(MealInitial());
 
   final HomeRepo homeRepo;
-  Future<void> getMealsByCategory() async {
+  Future<void> getMealByCategory() async {
     emit(getMealLoading());
     var result = await homeRepo.getMealsByCategory();
     result.fold((failure) {
