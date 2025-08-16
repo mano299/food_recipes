@@ -4,6 +4,7 @@ import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/profile/presentation/widgets/favorite_grid_view.dart';
 import 'package:food_recipes/app/features/profile/presentation/widgets/favorite_header.dart';
 import 'package:food_recipes/app/features/profile/presentation/widgets/user_info.dart';
+import 'package:food_recipes/app/features/welcome/presentation/views/login_page.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({super.key});
@@ -45,11 +46,13 @@ class ProfileViewBody extends StatelessWidget {
       ),
       actions: [
         Padding(
-          padding: const EdgeInsets.only(right: 24.0),
-          child: Icon(
-            FontAwesomeIcons.gear,
+          padding: const EdgeInsets.only(right: 16.0),
+          child: IconButton(
+            onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage(),)),
+              icon: Icon(
+            FontAwesomeIcons.rightFromBracket,
             color: Colors.black,
-          ),
+          )),
         )
       ],
     );

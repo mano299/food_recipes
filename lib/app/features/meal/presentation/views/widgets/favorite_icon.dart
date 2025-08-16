@@ -9,7 +9,7 @@ class FavoriteIcon extends StatelessWidget {
     return CircleAvatar(
       backgroundColor: Colors.white,
       child: IconButton(
-        icon: Icon(FontAwesomeIcons.heart, color: Colors.black),
+        icon: Icon(FontAwesomeIcons.solidHeart, color: Colors.grey),
         onPressed: () {},
       ),
     );
