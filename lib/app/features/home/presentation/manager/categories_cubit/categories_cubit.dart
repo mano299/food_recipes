@@ -11,7 +11,6 @@ class CategoriesCubit extends Cubit<CategoriesState> {
   Future<void> fetchCategories() async {
     emit(CategoriesLoading());
     var result = await homeRepo.fetchCategories();
-
     result.fold((failure) {
       emit(CategoriesFailure(failure.errMessage));
     }, (categoriesList) {

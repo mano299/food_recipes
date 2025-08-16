@@ -4,7 +4,7 @@ import 'package:food_recipes/app/features/welcome/presentation/manager/login_cub
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
-
+  String x = "dsdsd";
   Future<void> LoginUser(
       {required String email, required String password}) async {
     emit(LoginLoading());
