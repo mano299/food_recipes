@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
+import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/meal_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/category_item.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_cubit.dart';
 
@@ -30,6 +31,9 @@ class _CategoryListViewState extends State<CategoryListView> {
                     onTap: () {
                       setState(() {
                         selectedIndex = index;
+                        BlocProvider.of<MealCubit>(context).category =
+                            state.categories[index].category;
+                        BlocProvider.of<MealCubit>(context).getMealByCategory();
                         //       BlocProvider.of<LoginCubit>(context).x = state.categories[index].category;
                       });
                     },

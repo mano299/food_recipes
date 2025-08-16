@@ -31,10 +31,11 @@ class HomeRepoImpl implements HomeRepo {
 
   //String category;
   @override
-  Future<Either<Failure, List<MealModel>>> getMealsByCategory() async {
+  Future<Either<Failure, List<MealModel>>> getMealsByCategory(
+      String category) async {
     try {
       Map<String, dynamic> data =
-          await apiService.get(endPoint: "filter.php?c=Seafood");
+          await apiService.get(endPoint: "filter.php?c=$category");
       List<MealModel> meals = [];
       for (var meal in data["meals"]) {
         meals.add(MealModel.fromJson(meal));

@@ -1,6 +1,6 @@
 class MealModel {
   final String mealName;
-  final String mealImage;
+  final String? mealImage;
   final String mealId;
 
   MealModel(
