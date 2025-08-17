@@ -60,7 +60,7 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
                       placeholder: (context, url) =>
                           Center(child: CircularProgressIndicator()),
                       errorWidget: (context, url, error) => Icon(Icons.error),
-                      height: 140,
+                      height: 180,
                       width: double.infinity,
                       fit: BoxFit.cover,
                     ),
@@ -99,21 +99,7 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
                 style: Styles.textStyle18(context).copyWith(color: kTextColor),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                children: [
-                  Icon(Icons.location_on),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  Text(
-                    'Italian',
-                    style: Styles.textStyle14(context),
-                  )
-                ],
-              ),
-            )
+            
           ],
         ),
       ),

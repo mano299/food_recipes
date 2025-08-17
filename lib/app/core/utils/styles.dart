@@ -9,7 +9,13 @@ abstract class Styles {
       color: kTextColor,
     );
   }
-
+static TextStyle textStyle16(context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      fontWeight: FontWeight.w700,
+      color: kTextColor,
+    );
+  }
   static TextStyle textStyle28(context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 22),

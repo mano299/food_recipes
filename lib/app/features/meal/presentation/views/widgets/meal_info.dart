@@ -6,16 +6,18 @@ import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingred
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/splitter.dart';
 
 class MealInfo extends StatelessWidget {
-  const MealInfo({super.key, required this.mealName, required this.mealTags});
+  const MealInfo({super.key, required this.mealName, required this.mealTags, required this.mealArea});
   final String mealName;
   final String mealTags;
+  final String mealArea;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(24), topRight: Radius.circular(24)),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -46,6 +48,19 @@ class MealInfo extends StatelessWidget {
                   mealTags,
                   style: Styles.textStyle18(context)
                       .copyWith(color: Color(0xff748189)),
+                ),
+                SizedBox(height: 16),
+                Row(
+                  children: [
+                    Icon(Icons.location_on,size: 28),
+                    SizedBox(
+                      width: 4,
+                    ),
+                    Text(
+                      mealArea,
+                      style: Styles.textStyle18(context),
+                    )
+                  ],
                 ),
                 SizedBox(height: 16),
                 IngredientsAndInstructions(),

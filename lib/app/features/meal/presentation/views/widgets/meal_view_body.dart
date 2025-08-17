@@ -29,7 +29,7 @@ class MealViewBody extends StatelessWidget {
                     Positioned(top: 40, right: 16, child: FavoriteIcon()),
                   ],
                 ),
-                MealInfo(mealName: recipe[0].strMeal, mealTags: recipe[0].strTags ?? '',),
+                MealInfo(mealName: recipe[0].strMeal, mealTags: recipe[0].strTags ?? '', mealArea: recipe[0].strArea,),
               ],
             );
           } else if (state is getRecipeFailure) {
