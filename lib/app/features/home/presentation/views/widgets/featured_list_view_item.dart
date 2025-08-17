@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
-  const FeaturedListViewItem({super.key});
-
+  const FeaturedListViewItem({super.key, required this.photo, required this.mealName});
+  final String photo;
+  final String mealName;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,7 +14,7 @@ class FeaturedListViewItem extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
-          image: AssetImage('assets/photos/background.png'),
+          image: NetworkImage(photo),
           fit: BoxFit.fill,
         ),
       ),
@@ -21,9 +23,8 @@ class FeaturedListViewItem extends StatelessWidget {
         child: Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'Asian white noodle \nwith extra seafood',
-            style: Styles.textStyle21(context).copyWith(color: Colors.white),
-            maxLines: 2,
+            mealName,
+            style: Styles.textStyle21(context).copyWith(color: Colors.white)
           ),
         ),
       ),

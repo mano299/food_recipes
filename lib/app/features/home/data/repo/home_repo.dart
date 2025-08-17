@@ -5,5 +5,6 @@ import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 
 abstract class HomeRepo {
   Future<Either<Failure, List<CategoriesModel>>> fetchCategories();
+  Future<Either<Failure, List<MealModel>>> fetchFeatured();
   Future<Either<Failure, List<MealModel>>> getMealsByCategory(String category);
 }

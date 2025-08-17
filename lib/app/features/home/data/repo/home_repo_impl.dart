@@ -49,4 +49,24 @@ class HomeRepoImpl implements HomeRepo {
       }
     }
   }
+  
+    @override
+  Future<Either<Failure, List<MealModel>>> fetchFeatured() async {
+    try {
+      Map<String, dynamic> data =
+          await apiService.get(endPoint: "filter.php?a=Canadian"); 
+      List<MealModel> meals = [];
+      for (var meal in data["meals"]) {
+        meals.add(MealModel.fromJson(meal));
+      }
+      return right(meals);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
 }
