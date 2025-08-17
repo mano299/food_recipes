@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:food_recipes/app/core/error/failure.dart';
 import 'package:food_recipes/app/core/utils/api_service.dart';
 import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
-import 'package:food_recipes/app/features/meal/data/repo/meal_repo.dart';
+import 'package:food_recipes/app/features/meal/data/repo/recipe_repo.dart';
 
 class MealRepoImpl implements MealRepo {
   final ApiService apiService;

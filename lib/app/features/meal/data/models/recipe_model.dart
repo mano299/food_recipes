@@ -1,4 +1,4 @@
-class MealModel {
+class RecipeModel {
   final int idMeal;
   final String strMeal;
   final String? strMealAlternate;
@@ -11,7 +11,7 @@ class MealModel {
   final List<String> ingredients;
   final List<String> measures;
 
-  MealModel({
+  RecipeModel({
     required this.idMeal,
     required this.strMeal,
     this.strMealAlternate,
@@ -25,7 +25,7 @@ class MealModel {
     required this.measures,
   });
 
-  factory MealModel.fromJson(Map<String, dynamic> json) {
+  factory RecipeModel.fromJson(Map<String, dynamic> json) {
     List<String> ingredients = [];
     List<String> measures = [];
 
@@ -41,7 +41,7 @@ class MealModel {
       }
     }
 
-    return MealModel(
+    return RecipeModel(
       idMeal: json['idMeal'],
       strMeal: json['strMeal'],
       strMealAlternate: json['strMealAlternate'],
