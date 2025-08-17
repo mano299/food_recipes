@@ -69,15 +69,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                           'Category',
                           style: Styles.textStyle21(context),
                         ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'See All',
-                            style: Styles.textStyle14(context).copyWith(
-                              color: kPrimaryColor,
-                            ),
-                          ),
-                        ),
+                        
                       ],
                     ),
                   ),

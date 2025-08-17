@@ -1,15 +1,10 @@
-import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_recipes/app/core/utils/api_service.dart';
 import 'package:food_recipes/app/core/utils/service_locator.dart';
-import 'package:food_recipes/app/features/home/data/repo/home_repo_impl.dart';
-import 'package:food_recipes/app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/home_view.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/Register_cubit/register_cubit.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_cubit.dart';
-import 'package:food_recipes/app/features/welcome/presentation/views/login_page.dart';
 import 'package:food_recipes/firebase_options.dart';
 import 'package:food_recipes/simple_bloc_observer.dart';
 import 'package:google_fonts/google_fonts.dart';

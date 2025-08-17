@@ -16,9 +16,6 @@ class PopularRecipesHeader extends StatelessWidget {
           'Popular Recipes',
           style: Styles.textStyle21(context),
         ),
-        SeeAllButton(
-          text: "See All",
-        ),
       ],
     );
   }

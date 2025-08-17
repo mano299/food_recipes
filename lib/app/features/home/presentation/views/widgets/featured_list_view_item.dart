@@ -3,7 +3,8 @@ import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
-  const FeaturedListViewItem({super.key, required this.photo, required this.mealName});
+  const FeaturedListViewItem(
+      {super.key, required this.photo, required this.mealName});
   final String photo;
   final String mealName;
   @override
@@ -19,13 +20,12 @@ class FeaturedListViewItem extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 16.0, top: 56, right: 16),
+        padding:
+            const EdgeInsets.only(left: 16.0, top: 56, right: 16, bottom: 16),
         child: Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            mealName,
-            style: Styles.textStyle21(context).copyWith(color: Colors.white)
-          ),
+          alignment: Alignment.bottomLeft,
+          child: Text(mealName,
+              style: Styles.textStyle21(context).copyWith(color: Colors.white)),
         ),
       ),
     );
