@@ -8,3 +8,19 @@ sealed class RecipeState extends Equatable {
 }
 
 final class RecipeInitial extends RecipeState {}
+
+final class getRecipeSuccess extends RecipeState {
+  final List<RecipeModel> recipe;
+  const getRecipeSuccess({required this.recipe});
+
+  @override
+  List<Object> get props => [recipe];
+}
+
+final class getRecipeLoading extends RecipeState {}
+
+final class getRecipeFailure extends RecipeState {
+  final String errMessage;
+
+  const getRecipeFailure({required this.errMessage});
+}
