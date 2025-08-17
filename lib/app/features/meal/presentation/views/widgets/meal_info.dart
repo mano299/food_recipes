@@ -6,7 +6,9 @@ import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingred
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/splitter.dart';
 
 class MealInfo extends StatelessWidget {
-  const MealInfo({super.key});
+  const MealInfo({super.key, required this.mealName, required this.mealTags});
+  final String mealName;
+  final String mealTags;
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +38,12 @@ class MealInfo extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'Healthy Taco Salad',
+                  mealName,
                   style: Styles.textStyle21(context),
                 ),
                 SizedBox(height: 6),
                 Text(
-                  'This Healthy Taco Salad is the universal delight of taco night',
+                  mealTags,
                   style: Styles.textStyle18(context)
                       .copyWith(color: Color(0xff748189)),
                 ),

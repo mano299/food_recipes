@@ -27,11 +27,9 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => MealView(),
+              builder: (context) => MealView(mealId: widget.mealModel.mealId,),
             ));
-        BlocProvider.of<RecipeCubit>(context).id = widget.mealModel.mealId;
         log(widget.mealModel.mealId);
-        BlocProvider.of<RecipeCubit>(context).getRecipeById();
       },
       child: Container(
         width: 200,

@@ -7,15 +7,16 @@ part 'recipe_state.dart';
 
 class RecipeCubit extends Cubit<RecipeState> {
   RecipeCubit(this.recipeModel) : super(RecipeInitial());
-  final recipeRepo recipeModel;
-  late String id;
-  Future<void> getRecipeById() async {
-    emit(getRecipeLoading());
-    var result = await recipeModel.getMealById(id);
-    result.fold((failure) {
-      emit(getRecipeFailure(errMessage: failure.errMessage));
-    }, (recipe) {
-      emit(getRecipeSuccess(recipe: recipe));
-    });
-  }
+  final RecipeRepo recipeModel;
+
+  Future<void> getRecipeById(String mealId) async {
+  emit(getRecipeLoading());
+  var result = await recipeModel.getMealById(mealId); 
+  result.fold((failure) {
+    emit(getRecipeFailure(errMessage: failure.errMessage));
+  }, (recipe) {
+    emit(getRecipeSuccess(recipe: recipe));
+  });
+}
+
 }

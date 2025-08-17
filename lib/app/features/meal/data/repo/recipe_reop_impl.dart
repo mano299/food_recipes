@@ -8,7 +8,7 @@ import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 import 'package:food_recipes/app/features/meal/data/models/recipe_model.dart';
 import 'package:food_recipes/app/features/meal/data/repo/recipe_repo.dart';
 
-class recipeRepoImpl implements recipeRepo {
+class recipeRepoImpl implements RecipeRepo {
   final ApiService apiService;
 
   recipeRepoImpl(this.apiService);
