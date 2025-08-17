@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
+import 'package:food_recipes/app/features/meal/presentation/manager/recipes/recipe_cubit.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
 
 class PopularListViewItem extends StatefulWidget {
@@ -25,6 +29,9 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
             MaterialPageRoute(
               builder: (context) => MealView(),
             ));
+        BlocProvider.of<RecipeCubit>(context).id = widget.mealModel.mealId;
+        log(widget.mealModel.mealId);
+        BlocProvider.of<RecipeCubit>(context).getRecipeById();
       },
       child: Container(
         width: 200,

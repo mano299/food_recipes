@@ -8,7 +8,7 @@ part 'recipe_state.dart';
 class RecipeCubit extends Cubit<RecipeState> {
   RecipeCubit(this.recipeModel) : super(RecipeInitial());
   final recipeRepo recipeModel;
-  late int id;
+  late String id;
   Future<void> getRecipeById() async {
     emit(getRecipeLoading());
     var result = await recipeModel.getMealById(id);

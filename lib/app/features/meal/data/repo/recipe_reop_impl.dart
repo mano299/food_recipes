@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:food_recipes/app/core/error/failure.dart';
@@ -12,7 +14,7 @@ class recipeRepoImpl implements recipeRepo {
   recipeRepoImpl(this.apiService);
 
   @override
-  Future<Either<Failure, List<RecipeModel>>> getMealById(int id) async {
+  Future<Either<Failure, List<RecipeModel>>> getMealById(String id) async {
     try {
       final data = await apiService.get(endPoint: "lookup.php?i=$id");
       final recipe = (data["meals"] as List)
@@ -21,7 +23,9 @@ class recipeRepoImpl implements recipeRepo {
       return right(recipe);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioError(e));
-    } catch (e) {
+    } catch (e, s) {
+      log("❌ ERROR: $e");
+      log("STACKTRACE: $s");
       return left(ServerFailure(e.toString()));
     }
   }

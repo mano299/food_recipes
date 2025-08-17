@@ -5,6 +5,9 @@ import 'package:food_recipes/app/features/home/data/repo/home_repo_impl.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/meal_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:food_recipes/app/features/meal/data/repo/recipe_reop_impl.dart';
+import 'package:food_recipes/app/features/meal/data/repo/recipe_repo.dart';
+import 'package:food_recipes/app/features/meal/presentation/manager/recipes/recipe_cubit.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -21,6 +24,8 @@ class HomeView extends StatelessWidget {
           create: (context) =>
               MealCubit(getIt.get<HomeRepoImpl>())..getMealByCategory(),
         ),
+        BlocProvider(
+            create: (context) => RecipeCubit(getIt.get<recipeRepoImpl>())),
       ],
       child: const HomeViewBody(),
     );

@@ -1,5 +1,5 @@
 class RecipeModel {
-  final int idMeal;
+  final String idMeal;
   final String strMeal;
   final String? strMealAlternate;
   final String strCategory;
