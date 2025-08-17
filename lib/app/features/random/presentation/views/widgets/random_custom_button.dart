@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/random/presentation/views/manager/random_cubit/random_cubit.dart';
 
 class RandomCustomButton extends StatelessWidget {
   const RandomCustomButton({super.key, required this.text});
@@ -9,7 +11,10 @@ class RandomCustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+                context.read<RandomCubit>().fetchRandomMeal();
+
+      },
       style: ButtonStyle(
         minimumSize: WidgetStateProperty.all(Size(150, 50)),
         backgroundColor: WidgetStateProperty.all(kPrimaryColor),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/random/presentation/views/manager/random_cubit/random_cubit.dart';
 import 'package:food_recipes/app/features/random/presentation/views/widgets/random_custom_button.dart';
 import 'package:food_recipes/app/features/random/presentation/views/widgets/random_meal_card.dart';
 
@@ -24,7 +26,24 @@ class RandomViewBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RandomMealCard(),
+            BlocBuilder<RandomCubit, RandomState>(
+              builder: (context, state) {
+                if (state is RandomSuccess) {
+                  return RandomMealCard(
+                    photo: state.meal.mealImage ?? '',
+                    mealName: state.meal.mealName,
+                  );
+                } else if (state is RandomFailure) {
+                  return Center(
+                    child: Text(state.errMessage),
+                  );
+                } else {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            ),
             SizedBox(height: 24),
             RandomCustomButton(
               text: 'Generate Random Meal',
