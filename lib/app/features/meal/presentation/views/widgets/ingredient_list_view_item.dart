@@ -36,10 +36,7 @@ class IngredientListViewItem extends StatelessWidget {
               SizedBox(width: 16),
               Expanded(child: Text(mealIngredient, style: Styles.textStyle18(context), maxLines: 1, overflow: TextOverflow.ellipsis,)),
               SizedBox(width: 12),
-              Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: Text(mealIngredientMeasure, style: Styles.textStyle16(context)),
-              ),
+              Text(mealIngredientMeasure, style: Styles.textStyle16(context)),
             ],
           ),
         ),

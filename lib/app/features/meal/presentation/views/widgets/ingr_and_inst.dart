@@ -3,7 +3,6 @@ import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingred
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/instruction.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/meal_button.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingredients_header.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class IngredientsAndInstructions extends StatefulWidget {
   const IngredientsAndInstructions({super.key});
