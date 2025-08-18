@@ -65,8 +65,6 @@ class MealInfo extends StatelessWidget {
                 SizedBox(height: 16),
                 IngredientsAndInstructions(),
                 SizedBox(height: 16),
-                IngredientsHeader(),
-                IngredientsListView()
               ],
             ),
           ),
