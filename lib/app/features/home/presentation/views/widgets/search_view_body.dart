@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes/app/features/home/presentation/views/widgets/category_list_view.dart';
-import 'package:food_recipes/app/features/home/presentation/views/widgets/editor_choice_list_view.dart';
-import 'package:food_recipes/app/features/home/presentation/views/widgets/editors_choice_header.dart';
-import 'package:food_recipes/app/features/home/presentation/views/widgets/popluer_recipes_list_view.dart';
-import 'package:food_recipes/app/features/home/presentation/views/widgets/populerRecipesHeader.dart';
+import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/search_text_field.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -19,37 +16,14 @@ class SearchViewBody extends StatelessWidget {
             child: searchTextField(),
           ),
         ),
-        SliverToBoxAdapter(child: CategoryListView()),
         SliverToBoxAdapter(
-          child: SizedBox(
-            height: 24,
+          child: Center(
+            child: Text(
+              'اعمل هنا يا قاضي <3',
+              style: GoogleFonts.tajawal(fontSize: 48),
+            ),
           ),
         ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: PopularRecipesHeader(),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: SizedBox(
-            height: 12,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: SizedBox(height: 150, child: PopluerRecipesListView()),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12),
-            child: EditorsChoiceHeader(),
-          ),
-        ),
-        SliverToBoxAdapter(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
-          child: editorChoiceListView(),
-        )),
       ],
     );
   }

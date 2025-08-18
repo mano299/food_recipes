@@ -36,9 +36,10 @@ class ProfileViewBody extends StatelessWidget {
 
   AppBar profileAppBar(BuildContext context) {
     return AppBar(
+      scrolledUnderElevation: 0,
       titleSpacing: 24,
       automaticallyImplyLeading: false,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
       title: Text(
         'Account',
         style:
