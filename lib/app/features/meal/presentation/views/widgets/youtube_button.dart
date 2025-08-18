@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class YoutubeButton extends StatelessWidget {
-  const YoutubeButton({super.key});
+  const YoutubeButton({super.key, required this.mealUrl});
+  final String mealUrl;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _launchYoutube,
+      onTap: () {
+        _launchYoutube(mealUrl); 
+      },
       child: Container(
         height: MediaQuery.of(context).size.height * .06,
         width: double.infinity,
@@ -41,10 +44,12 @@ class YoutubeButton extends StatelessWidget {
     );
   }
 
-  Future<void> _launchYoutube() async {
-    final Uri url = Uri.parse('www');
-    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
-      throw Exception('Could not launch $url');
-    }
+  Future<void> _launchYoutube(String mealUrl) async {
+  if (!mealUrl.startsWith('http')) {
+    mealUrl = 'https://$mealUrl';
   }
+  if (!await launchUrlString(mealUrl, mode: LaunchMode.externalApplication)) {
+    debugPrint("Could not launch $mealUrl");
+  }
+}
 }

@@ -2,7 +2,8 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:label="food_recipes"
+        android:usesCleartextTraffic="true"
+        android:label="Tasty"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

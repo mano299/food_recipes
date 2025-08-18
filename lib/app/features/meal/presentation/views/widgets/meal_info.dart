@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingr_and_inst.dart';
-import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingredients_header.dart';
-import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingredients_list_view.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/splitter.dart';
 
 class MealInfo extends StatelessWidget {
