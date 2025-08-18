@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/featured_cubit/featured_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/featured_list_view_item.dart';
 
@@ -36,7 +37,7 @@ class FeaturedListView extends StatelessWidget {
           );
         } else {
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularIndicator(),
           );
         }
       },

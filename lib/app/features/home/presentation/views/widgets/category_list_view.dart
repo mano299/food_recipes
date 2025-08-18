@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/meal_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/category_item.dart';
-import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_cubit.dart';
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({super.key});
@@ -58,7 +58,7 @@ class _CategoryListViewState extends State<CategoryListView> {
             ),
           );
         } else {
-          return Center(child: CircularProgressIndicator());
+          return Center(child: CircularIndicator());
         }
       },
     );

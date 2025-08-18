@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/features/meal/presentation/manager/recipes/recipe_cubit.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/back_icon.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/favorite_icon.dart';
@@ -40,7 +41,7 @@ class MealViewBody extends StatelessWidget {
               ),
             );
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: CircularIndicator());
           }
         },
       ),

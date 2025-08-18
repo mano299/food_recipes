@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/user_data_cubit/user_data_cubit.dart';
 
@@ -50,7 +51,7 @@ class CustomAppBar extends StatelessWidget {
                     ),
                   );
                 } else {
-                  return Center(child: CircularProgressIndicator());
+                  return Center(child: CircularIndicator());
                 }
               },
             ),

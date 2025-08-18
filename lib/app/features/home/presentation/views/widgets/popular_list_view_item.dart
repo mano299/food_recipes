@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
@@ -58,7 +59,7 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
                       imageUrl: widget.mealModel.mealImage ??
                           "https://folkways.today/wp-content/uploads/2022/06/iStock-1156340508.jpg",
                       placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
+                          Center(child: CircularIndicator()),
                       errorWidget: (context, url, error) => Icon(Icons.error),
                       height: 180,
                       width: double.infinity,

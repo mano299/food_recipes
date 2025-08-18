@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/service_locator.dart';
+import 'package:food_recipes/app/features/home/presentation/views/home_view.dart';
 import 'package:food_recipes/app/features/splash/presentation/views/splash_view.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/Register_cubit/register_cubit.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_cubit.dart';
@@ -32,12 +33,12 @@ class FoodRecipe extends StatelessWidget {
         BlocProvider(create: (context) => UserDataCubit()..getUserData()),
       ],
       child: MaterialApp(
-        title: 'Food Recipe',
+        title: 'Tasty',
         theme: ThemeData(
           textTheme: GoogleFonts.latoTextTheme(),
         ),
         debugShowCheckedModeBanner: false,
-        home: const SplashView(),
+        home: const HomeView(),
       ),
     );
   }
