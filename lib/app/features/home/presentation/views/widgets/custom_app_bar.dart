@@ -17,15 +17,16 @@ class CustomAppBar extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  Icons.wb_sunny_outlined,
+                  DateTime.now().hour < 18 ? Icons.wb_sunny_outlined : Icons.nightlight_round_outlined,
                   color: Color(0xff4D8194),
                   size: 26,
                 ),
                 SizedBox(width: 4),
                 Text(
-                  'Good Morning',
-                  style: Styles.textStyle14(context)
-                      .copyWith(fontWeight: FontWeight.w500),
+                  DateTime.now().hour < 18 ? 'Good Morning' : 'Good Evening',
+                  style: Styles.textStyle14(context).copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 Spacer(),
                 Icon(

@@ -12,7 +12,7 @@ final class UserDataInitial extends UserDataState {}
 final class UserDataSuccess extends UserDataState {
   final UserDataModel userDataModel;
 
-  UserDataSuccess({required this.userDataModel});
+  const UserDataSuccess({required this.userDataModel});
 }
 
 final class UserDataLoading extends UserDataState {}
@@ -20,5 +20,5 @@ final class UserDataLoading extends UserDataState {}
 final class UserDataFailure extends UserDataState {
   final String errMessage;
 
-  UserDataFailure({required this.errMessage});
+  const UserDataFailure({required this.errMessage});
 }

@@ -7,7 +7,6 @@ import 'package:food_recipes/app/features/home/presentation/manager/featured_cub
 import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/meal_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:food_recipes/app/features/meal/data/repo/recipe_reop_impl.dart';
-import 'package:food_recipes/app/features/meal/data/repo/recipe_repo.dart';
 import 'package:food_recipes/app/features/meal/presentation/manager/recipes/recipe_cubit.dart';
 
 class HomeView extends StatelessWidget {
