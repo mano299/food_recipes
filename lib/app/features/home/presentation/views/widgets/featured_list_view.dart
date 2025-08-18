@@ -23,6 +23,7 @@ class FeaturedListView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: FeaturedListViewItem(
+                      mealId: state.meals[index].mealId,
                       photo: state.meals[index].mealImage ?? '',
                       mealName: state.meals[index].mealName,
                     ),

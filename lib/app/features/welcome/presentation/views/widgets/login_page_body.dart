@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/function/show_snak_bar.dart';
 import 'package:food_recipes/app/features/home/presentation/views/home_view.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_cubit.dart';
@@ -39,6 +40,7 @@ class LoginPageBody extends StatelessWidget {
       },
       builder: (context, state) {
         return ModalProgressHUD(
+          color: kPrimaryColor,
           inAsyncCall: isLoading,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
