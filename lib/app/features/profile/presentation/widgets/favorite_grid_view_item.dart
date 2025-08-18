@@ -66,20 +66,7 @@ class FavoriteGridViewItem extends StatelessWidget {
               style: Styles.textStyle18(context).copyWith(color: kTextColor),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 8.0, vertical: 2), // قللت التباعد
-            child: Row(
-              children: [
-                Icon(Icons.location_on, size: 16),
-                SizedBox(width: 4),
-                Text(
-                  'Italian',
-                  style: Styles.textStyle14(context),
-                )
-              ],
-            ),
-          )
+          
         ],
       ),
     );
