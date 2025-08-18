@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
 class IngredientListViewItem extends StatelessWidget {
-  const IngredientListViewItem({super.key, required this.mealIngredient});
+  const IngredientListViewItem({super.key, required this.mealIngredient, });
   final String mealIngredient;
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,11 @@ class IngredientListViewItem extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Row(
             children: [
-              Image.asset(
-                'assets/photos/Image 1.png',
+              Image.network(
+                'https://www.themealdb.com/images/ingredients/$mealIngredient.png',
                 height: 64,
                 width: 64,
+                fit: BoxFit.cover,
               ),
               SizedBox(width: 16),
               Text(mealIngredient, style: Styles.textStyle18(context)),
