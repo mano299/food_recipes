@@ -9,7 +9,11 @@ sealed class UserDataState extends Equatable {
 
 final class UserDataInitial extends UserDataState {}
 
-final class UserDataSuccess extends UserDataState {}
+final class UserDataSuccess extends UserDataState {
+  final UserDataModel userDataModel;
+
+  UserDataSuccess({required this.userDataModel});
+}
 
 final class UserDataLoading extends UserDataState {}
 

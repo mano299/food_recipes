@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/welcome/presentation/manager/user_data_cubit/user_data_cubit.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -32,9 +34,24 @@ class CustomAppBar extends StatelessWidget {
                 )
               ],
             ),
-            Text(
-              'Alena Sabyan',
-              style: Styles.textStyle28(context),
+            BlocBuilder<UserDataCubit, UserDataState>(
+              builder: (context, state) {
+                if (state is UserDataSuccess) {
+                  return Text(
+                    state.userDataModel.fullName,
+                    style: Styles.textStyle28(context),
+                  );
+                } else if (state is UserDataFailure) {
+                  return Center(
+                    child: Text(
+                      state.errMessage,
+                      style: Styles.textStyle21(context),
+                    ),
+                  );
+                } else {
+                  return Center(child: CircularProgressIndicator());
+                }
+              },
             ),
           ],
         ),
