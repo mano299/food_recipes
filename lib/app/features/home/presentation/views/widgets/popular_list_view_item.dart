@@ -28,7 +28,9 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => MealView(mealId: widget.mealModel.mealId,),
+              builder: (context) => MealView(
+                mealId: widget.mealModel.mealId,
+              ),
             ));
         log(widget.mealModel.mealId);
       },
@@ -60,7 +62,14 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
                           "https://folkways.today/wp-content/uploads/2022/06/iStock-1156340508.jpg",
                       placeholder: (context, url) =>
                           Center(child: CircularIndicator()),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      errorWidget: (context, url, error) => Container(
+                        color: Colors.grey[200],
+                        child: Icon(
+                          Icons.image_not_supported,
+                          color: Colors.grey[400],
+                          size: 40,
+                        ),
+                      ),
                       height: 180,
                       width: double.infinity,
                       fit: BoxFit.cover,
@@ -100,7 +109,6 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
                 style: Styles.textStyle18(context).copyWith(color: kTextColor),
               ),
             ),
-            
           ],
         ),
       ),
