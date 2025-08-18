@@ -1,38 +1,37 @@
-
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/meal/presentation/manager/recipes/recipe_cubit.dart';
+import 'package:food_recipes/app/features/meal/presentation/views/widgets/youtube_button.dart';
 
 class Insrtuctions extends StatelessWidget {
   const Insrtuctions({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return BlocBuilder<RecipeCubit, RecipeState>(
+      builder: (context, state) {
+        if (state is getRecipeSuccess) {
+          return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              YoutubeButton(),
+              const SizedBox(height: 20),
+              Text(
                 'Instruction:',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: Styles.textStyle21(context),
               ),
               const SizedBox(height: 10),
-              const Text(
-                '1. Mix ingredients\n2. Bake for 20 mins\n3. Serve hot',
-                style: TextStyle(fontSize: 16),
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton.icon(
-                onPressed: _launchYoutube,
-                icon: const Icon(Icons.play_circle_fill),
-                label: const Text("Watch on YouTube"),
+              Text(
+                state.recipe[0].strInstructions,
+                style: Styles.textStyle18(context),
               ),
             ],
           );
-  }
-
-    Future<void> _launchYoutube() async {
-    final Uri url = Uri.parse('youtubeUrl');
-    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
-      throw Exception('Could not launch $url');
-    }
+        } else {
+          return Text('data');
+        }
+      },
+    );
   }
 }
