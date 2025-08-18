@@ -18,7 +18,7 @@ class IngredientsListView extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             itemCount: state.recipe[0].ingredients.length,
             itemBuilder: (context, index) => IngredientListViewItem(
-              mealIngredient: state.recipe[0].ingredients[index],
+              mealIngredient: state.recipe[0].ingredients[index], mealIngredientMeasure: state.recipe[0].measures[index],
             ),
           );
         } else if (state is getRecipeFailure) {

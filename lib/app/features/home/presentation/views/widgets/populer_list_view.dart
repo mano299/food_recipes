@@ -6,9 +6,7 @@ import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/m
 import 'package:food_recipes/app/features/home/presentation/views/widgets/popular_list_view_item.dart';
 
 class PopulerListView extends StatelessWidget {
-  const PopulerListView({
-    super.key,
-  });
+  const PopulerListView({super.key});
 
   @override
   Widget build(BuildContext context) {

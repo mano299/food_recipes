@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
 class IngredientListViewItem extends StatelessWidget {
-  const IngredientListViewItem({super.key, required this.mealIngredient, });
+  const IngredientListViewItem({super.key, required this.mealIngredient, required this.mealIngredientMeasure, });
   final String mealIngredient;
+  final String mealIngredientMeasure;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,11 +34,11 @@ class IngredientListViewItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               SizedBox(width: 16),
-              Text(mealIngredient, style: Styles.textStyle18(context)),
+              Text(mealIngredient, style: Styles.textStyle16(context)),
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(right: 12.0),
-                child: Text('2 cups', style: Styles.textStyle18(context)),
+                child: Text(mealIngredientMeasure, style: Styles.textStyle14(context)),
               ),
             ],
           ),
