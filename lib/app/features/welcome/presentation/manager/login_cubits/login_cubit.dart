@@ -14,6 +14,9 @@ class LoginCubit extends Cubit<LoginState> {
         email: email,
         password: password,
       );
+
+      String uid = FirebaseAuth.instance.currentUser!.uid;
+
       emit(LoginSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
