@@ -30,6 +30,7 @@ class RandomViewBody extends StatelessWidget {
               builder: (context, state) {
                 if (state is RandomSuccess) {
                   return RandomMealCard(
+                    mealId: state.meal.mealId,
                     photo: state.meal.mealImage ?? '',
                     mealName: state.meal.mealName,
                   );
