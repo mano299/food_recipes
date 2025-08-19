@@ -54,7 +54,7 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<MealModel>>> fetchFeatured() async {
     try {
       Map<String, dynamic> data =
-          await apiService.get(endPoint: "filter.php?a=Canadian"); 
+          await apiService.get(endPoint: "filter.php?a=French"); 
       List<MealModel> meals = [];
       for (var meal in data["meals"]) {
         meals.add(MealModel.fromJson(meal));
