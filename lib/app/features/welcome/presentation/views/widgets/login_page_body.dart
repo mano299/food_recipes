@@ -10,6 +10,7 @@ import 'package:food_recipes/app/features/welcome/presentation/views/widgets/cus
 import 'package:food_recipes/app/features/welcome/presentation/views/widgets/custom_text_field.dart';
 import 'package:food_recipes/app/features/welcome/presentation/views/register_page.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPageBody extends StatelessWidget {
   LoginPageBody({
@@ -105,6 +106,8 @@ class LoginPageBody extends StatelessWidget {
 
                           BlocProvider.of<LoginCubit>(context)
                               .LoginUser(email: email!, password: password!);
+                          final prefs = await SharedPreferences.getInstance();
+                          prefs.setBool('isLoggedIn', true);
                         }
                       },
                     ),

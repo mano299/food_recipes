@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_recipes/app/features/welcome/presentation/views/welcome_view.dart';
+import 'package:food_recipes/app/features/home/presentation/views/home_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -19,14 +21,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initAnimation();
-
-    // تأخير الانتقال لمدة 6 ثواني
-    Timer(const Duration(seconds: 6), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const WelcomeView()),
-      );
-    });
+    navigateAfterSplash();
   }
 
   void initAnimation() {
@@ -44,6 +39,21 @@ class _SplashViewBodyState extends State<SplashViewBody>
     ));
 
     logoAnimationController.forward();
+  }
+
+  Future<void> navigateAfterSplash() async {
+    final prefs = await SharedPreferences.getInstance();
+    final bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+
+    Timer(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              isLoggedIn ? const HomeView() : const WelcomeView(),
+        ),
+      );
+    });
   }
 
   @override
