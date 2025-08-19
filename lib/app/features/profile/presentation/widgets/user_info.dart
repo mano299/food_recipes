@@ -29,21 +29,25 @@ class UserInfo extends StatelessWidget {
         child: Row(
           children: [
             CircleAvatar(
-              maxRadius: 36,
-              backgroundColor: Colors.transparent,
-              child: Image.asset('assets/photos/james.png'),
+              maxRadius: 40,
+              backgroundColor: kPrimaryColor,
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/photos/chef photo.jpg',
+                  width: 72, 
+                  height: 72,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                    userDataModel == null
-                        ? "Magdy Afsha"
-                        : userDataModel.fullName,
+                Text(userDataModel == null ? "Chef" : userDataModel.fullName,
                     style: Styles.textStyle24(context)
                         .copyWith(fontWeight: FontWeight.w900)),
-                Text('High Recommended Chef',
+                Text('Highly Recommended Chef',
                     style: Styles.textStyle14(context)
                         .copyWith(color: Colors.grey.shade700)),
               ],
