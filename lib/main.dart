@@ -38,7 +38,7 @@ class FoodRecipe extends StatelessWidget {
           textTheme: GoogleFonts.latoTextTheme(),
         ),
         debugShowCheckedModeBanner: false,
-        home: const HomeView(),
+        home: const SplashView(),
       ),
     );
   }
