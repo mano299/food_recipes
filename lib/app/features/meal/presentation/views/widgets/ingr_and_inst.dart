@@ -53,10 +53,6 @@ class _IngredientsAndInstructionsState
         ),
         const SizedBox(height: 20),
         if (selectedIndex == 0) ...[
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: IngredientsHeader(),
-          ),
           const IngredientsListView(),
         ] else
           Insrtuctions(),
