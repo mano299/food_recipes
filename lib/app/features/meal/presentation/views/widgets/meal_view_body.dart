@@ -27,7 +27,7 @@ class MealViewBody extends StatelessWidget {
                           : 'https://via.placeholder.com/150',
                     ),
                     Positioned(top: 40, left: 16, child: BackIcon()),
-                    Positioned(top: 40, right: 16, child: FavoriteIcon()),
+                    Positioned(top: 40, right: 16, child: FavoriteIcon(meal: state.recipe[0],)),
                   ],
                 ),
                 MealInfo(mealName: recipe[0].strMeal, mealTags: recipe[0].strTags ?? '', mealArea: recipe[0].strArea,),
