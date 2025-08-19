@@ -15,9 +15,7 @@ class FavoriteHeader extends StatelessWidget {
           style:
               Styles.textStyle21(context).copyWith(fontWeight: FontWeight.w900),
         ),
-        SeeAllButton(
-          text: "See All",
-        ),
+        
       ],
     );
   }

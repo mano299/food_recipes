@@ -25,15 +25,12 @@ class CustomAppBar extends StatelessWidget {
                 SizedBox(width: 4),
                 Text(
                   DateTime.now().hour < 18 ? 'Good Morning' : 'Good Evening',
-                  style: Styles.textStyle14(context).copyWith(
-                    fontWeight: FontWeight.w500,
+                  style: Styles.textStyle16(context).copyWith(
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Spacer(),
-                Icon(
-                  Icons.shopping_cart_outlined,
-                  size: 28,
-                )
+                
               ],
             ),
             BlocBuilder<UserDataCubit, UserDataState>(
