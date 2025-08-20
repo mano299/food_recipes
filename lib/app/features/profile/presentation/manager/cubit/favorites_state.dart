@@ -22,5 +22,5 @@ final class FavoritesLoading extends FavoritesState {}
 final class FavoritesFailure extends FavoritesState {
   final String errMessage;
 
-  FavoritesFailure({required this.errMessage});
+  const FavoritesFailure({required this.errMessage});
 }

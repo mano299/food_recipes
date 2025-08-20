@@ -14,10 +14,9 @@ class MealView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-  create: (context) => RecipeCubit(
-      recipeRepoImpl(ApiService(Dio())) 
-    )..getRecipeById(mealId),
-  child: MealViewBody(),
-);
+      create: (context) =>
+          RecipeCubit(recipeRepoImpl(ApiService(Dio())))..getRecipeById(mealId),
+      child: MealViewBody(),
+    );
   }
 }

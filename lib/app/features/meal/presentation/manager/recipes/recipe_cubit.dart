@@ -10,13 +10,12 @@ class RecipeCubit extends Cubit<RecipeState> {
   final RecipeRepo recipeModel;
 
   Future<void> getRecipeById(String mealId) async {
-  emit(getRecipeLoading());
-  var result = await recipeModel.getMealById(mealId); 
-  result.fold((failure) {
-    emit(getRecipeFailure(errMessage: failure.errMessage));
-  }, (recipe) {
-    emit(getRecipeSuccess(recipe: recipe));
-  });
-}
-
+    emit(getRecipeLoading());
+    var result = await recipeModel.getMealById(mealId);
+    result.fold((failure) {
+      emit(getRecipeFailure(errMessage: failure.errMessage));
+    }, (recipe) {
+      emit(getRecipeSuccess(recipe: recipe));
+    });
+  }
 }

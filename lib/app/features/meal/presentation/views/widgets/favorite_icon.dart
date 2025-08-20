@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 List<dynamic> favorites = [];
+
 class FavoriteIcon extends StatefulWidget {
   const FavoriteIcon({super.key, required this.meal});
   final dynamic meal;
@@ -26,7 +27,7 @@ class _FavoriteIconState extends State<FavoriteIcon> {
             isFavorite = !isFavorite;
 
             if (isFavorite) {
-              favorites.add(widget.meal); 
+              favorites.add(widget.meal);
             } else {
               favorites.remove(widget.meal);
             }

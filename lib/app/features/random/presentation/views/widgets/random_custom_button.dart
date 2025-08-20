@@ -12,8 +12,7 @@ class RandomCustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-                context.read<RandomCubit>().fetchRandomMeal();
-
+        context.read<RandomCubit>().fetchRandomMeal();
       },
       style: ButtonStyle(
         minimumSize: WidgetStateProperty.all(Size(150, 50)),

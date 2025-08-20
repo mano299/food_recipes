@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/views/home_view.dart';
 import 'package:food_recipes/app/features/home/presentation/views/search_view.dart';
@@ -69,7 +68,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                           'Category',
                           style: Styles.textStyle21(context),
                         ),
-                        
                       ],
                     ),
                   ),

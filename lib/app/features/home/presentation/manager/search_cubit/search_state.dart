@@ -20,7 +20,7 @@ final class SearchSuccess extends SearchState {
 final class SearchFailure extends SearchState {
   final String errMessage;
 
-  SearchFailure({required this.errMessage});
+  const SearchFailure({required this.errMessage});
 }
 
 final class SearchLoading extends SearchState {}

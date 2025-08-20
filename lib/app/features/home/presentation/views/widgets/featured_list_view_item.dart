@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
   const FeaturedListViewItem(
-      {super.key, required this.photo, required this.mealName, required this.mealId});
+      {super.key,
+      required this.photo,
+      required this.mealName,
+      required this.mealId});
   final String photo;
   final String mealName;
   final String mealId;
@@ -36,7 +38,8 @@ class FeaturedListViewItem extends StatelessWidget {
           child: Align(
             alignment: Alignment.bottomLeft,
             child: Text(mealName,
-                style: Styles.textStyle21(context).copyWith(color: Colors.white)),
+                style:
+                    Styles.textStyle21(context).copyWith(color: Colors.white)),
           ),
         ),
       ),

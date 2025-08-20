@@ -5,7 +5,6 @@ import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/meal_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/search_cubit/search_cubit.dart';
-import 'package:food_recipes/app/features/home/presentation/views/search_view.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/category_item.dart';
 
 class CategoryListView extends StatefulWidget {

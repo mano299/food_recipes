@@ -4,7 +4,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:food_recipes/app/core/error/failure.dart';
 import 'package:food_recipes/app/core/utils/api_service.dart';
-import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 import 'package:food_recipes/app/features/meal/data/models/recipe_model.dart';
 import 'package:food_recipes/app/features/meal/data/repo/recipe_repo.dart';
 

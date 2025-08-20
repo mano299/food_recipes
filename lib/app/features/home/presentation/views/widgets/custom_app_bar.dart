@@ -18,7 +18,9 @@ class CustomAppBar extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  DateTime.now().hour < 18 ? Icons.wb_sunny_outlined : Icons.nightlight_round_outlined,
+                  DateTime.now().hour < 18
+                      ? Icons.wb_sunny_outlined
+                      : Icons.nightlight_round_outlined,
                   color: Color(0xff4D8194),
                   size: 26,
                 ),
@@ -30,7 +32,6 @@ class CustomAppBar extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                
               ],
             ),
             BlocBuilder<UserDataCubit, UserDataState>(

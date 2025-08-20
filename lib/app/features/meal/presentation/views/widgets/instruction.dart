@@ -16,7 +16,10 @@ class Insrtuctions extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              YoutubeButton(mealUrl: state.recipe[0].strYoutube ?? 'https://www.youtube.com/',),
+              YoutubeButton(
+                mealUrl:
+                    state.recipe[0].strYoutube ?? 'https://www.youtube.com/',
+              ),
               const SizedBox(height: 20),
               Text(
                 'Instruction:',
@@ -33,7 +36,7 @@ class Insrtuctions extends StatelessWidget {
           return Center(
             child: Text(state.errMessage),
           );
-        }else{
+        } else {
           return CircularIndicator();
         }
       },

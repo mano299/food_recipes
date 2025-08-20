@@ -1,6 +1,5 @@
 part of 'featured_cubit.dart';
 
-
 sealed class FeaturedState extends Equatable {
   const FeaturedState();
 

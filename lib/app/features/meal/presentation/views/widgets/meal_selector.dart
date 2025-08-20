@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/meal_button.dart';
 
@@ -10,7 +9,7 @@ class MealSelector extends StatefulWidget {
 }
 
 class _MealSelectorState extends State<MealSelector> {
-  int selectedIndex = 0; 
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TopPhoto extends StatelessWidget {
-  const TopPhoto({
-    super.key, required this.photo
-  });
+  const TopPhoto({super.key, required this.photo});
   final String photo;
   @override
   Widget build(BuildContext context) {

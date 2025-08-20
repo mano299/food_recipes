@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
-import 'package:food_recipes/app/features/home/presentation/views/widgets/see_all_button.dart';
 
 class PopularRecipesHeader extends StatelessWidget {
   const PopularRecipesHeader({

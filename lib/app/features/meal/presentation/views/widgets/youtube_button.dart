@@ -11,7 +11,7 @@ class YoutubeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _launchYoutube(mealUrl); 
+        _launchYoutube(mealUrl);
       },
       child: Container(
         height: MediaQuery.of(context).size.height * .06,
@@ -45,11 +45,11 @@ class YoutubeButton extends StatelessWidget {
   }
 
   Future<void> _launchYoutube(String mealUrl) async {
-  if (!mealUrl.startsWith('http')) {
-    mealUrl = 'https://$mealUrl';
+    if (!mealUrl.startsWith('http')) {
+      mealUrl = 'https://$mealUrl';
+    }
+    if (!await launchUrlString(mealUrl, mode: LaunchMode.externalApplication)) {
+      debugPrint("Could not launch $mealUrl");
+    }
   }
-  if (!await launchUrlString(mealUrl, mode: LaunchMode.externalApplication)) {
-    debugPrint("Could not launch $mealUrl");
-  }
-}
 }

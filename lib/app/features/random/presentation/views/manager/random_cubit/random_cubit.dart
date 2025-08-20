@@ -12,7 +12,8 @@ class RandomCubit extends Cubit<RandomState> {
   Future<void> fetchRandomMeal() async {
     emit(RandomLoading());
     try {
-      final response = await http.get(Uri.parse("https://www.themealdb.com/api/json/v1/1/random.php"));
+      final response = await http
+          .get(Uri.parse("https://www.themealdb.com/api/json/v1/1/random.php"));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         final mealJson = data['meals'][0];

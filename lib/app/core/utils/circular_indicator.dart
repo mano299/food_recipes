@@ -6,6 +6,8 @@ class CircularIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircularProgressIndicator(color: kPrimaryColor,);
+    return CircularProgressIndicator(
+      color: kPrimaryColor,
+    );
   }
 }

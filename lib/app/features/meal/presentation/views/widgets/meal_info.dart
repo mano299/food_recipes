@@ -4,7 +4,11 @@ import 'package:food_recipes/app/features/meal/presentation/views/widgets/ingr_a
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/splitter.dart';
 
 class MealInfo extends StatelessWidget {
-  const MealInfo({super.key, required this.mealName, required this.mealTags, required this.mealArea});
+  const MealInfo(
+      {super.key,
+      required this.mealName,
+      required this.mealTags,
+      required this.mealArea});
   final String mealName;
   final String mealTags;
   final String mealArea;
@@ -50,7 +54,7 @@ class MealInfo extends StatelessWidget {
                 SizedBox(height: 16),
                 Row(
                   children: [
-                    Icon(Icons.location_on,size: 28),
+                    Icon(Icons.location_on, size: 28),
                     SizedBox(
                       width: 4,
                     ),

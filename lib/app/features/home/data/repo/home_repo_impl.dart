@@ -1,12 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/error/failure.dart';
 import 'package:food_recipes/app/core/utils/api_service.dart';
 import 'package:food_recipes/app/features/home/data/models/categories_model.dart';
 import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 import 'package:food_recipes/app/features/home/data/repo/home_repo.dart';
-import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/meal_cubit.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;

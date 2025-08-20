@@ -7,12 +7,11 @@ import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
-import 'package:food_recipes/app/features/meal/presentation/manager/recipes/recipe_cubit.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
 import 'package:food_recipes/app/features/profile/presentation/manager/cubit/favorites_cubit.dart';
 
 class PopularListViewItem extends StatelessWidget {
-  PopularListViewItem({super.key, required this.mealModel});
+  const PopularListViewItem({super.key, required this.mealModel});
 
   final MealModel mealModel;
 

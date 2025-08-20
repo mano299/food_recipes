@@ -6,6 +6,7 @@ import 'package:food_recipes/app/features/meal/presentation/views/widgets/back_i
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/favorite_icon.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/meal_info.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/widgets/top_photo.dart';
+
 class MealViewBody extends StatelessWidget {
   const MealViewBody({super.key});
 
@@ -27,10 +28,19 @@ class MealViewBody extends StatelessWidget {
                           : 'https://via.placeholder.com/150',
                     ),
                     Positioned(top: 40, left: 16, child: BackIcon()),
-                    Positioned(top: 40, right: 16, child: FavoriteIcon(meal: state.recipe[0],)),
+                    Positioned(
+                        top: 40,
+                        right: 16,
+                        child: FavoriteIcon(
+                          meal: state.recipe[0],
+                        )),
                   ],
                 ),
-                MealInfo(mealName: recipe[0].strMeal, mealTags: recipe[0].strTags ?? '', mealArea: recipe[0].strArea,),
+                MealInfo(
+                  mealName: recipe[0].strMeal,
+                  mealTags: recipe[0].strTags ?? '',
+                  mealArea: recipe[0].strArea,
+                ),
               ],
             );
           } else if (state is getRecipeFailure) {

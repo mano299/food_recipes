@@ -34,7 +34,7 @@ class UserInfo extends StatelessWidget {
               child: ClipOval(
                 child: Image.asset(
                   'assets/photos/chef photo.jpg',
-                  width: 72, 
+                  width: 72,
                   height: 72,
                   fit: BoxFit.cover,
                 ),

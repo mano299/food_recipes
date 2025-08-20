@@ -1,9 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
 class IngredientListViewItem extends StatelessWidget {
-  const IngredientListViewItem({super.key, required this.mealIngredient, required this.mealIngredientMeasure, });
+  const IngredientListViewItem({
+    super.key,
+    required this.mealIngredient,
+    required this.mealIngredientMeasure,
+  });
   final String mealIngredient;
   final String mealIngredientMeasure;
   @override
@@ -34,7 +37,13 @@ class IngredientListViewItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               SizedBox(width: 16),
-              Expanded(child: Text(mealIngredient, style: Styles.textStyle18(context), maxLines: 1, overflow: TextOverflow.ellipsis,)),
+              Expanded(
+                  child: Text(
+                mealIngredient,
+                style: Styles.textStyle18(context),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              )),
               SizedBox(width: 12),
               Text(mealIngredientMeasure, style: Styles.textStyle16(context)),
             ],
