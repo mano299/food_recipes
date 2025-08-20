@@ -2,11 +2,13 @@ import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
+import 'package:food_recipes/app/features/profile/presentation/manager/cubit/favorites_cubit.dart';
 
 class SearchMealItem extends StatefulWidget {
   const SearchMealItem({super.key, required this.mealModel});
@@ -79,16 +81,35 @@ class _SearchMealItemState extends State<SearchMealItem> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: GestureDetector(
-                      onTap: () {
-                        fav = !fav;
-                        setState(() {});
+                    child: BlocBuilder<FavoritesCubit, FavoritesState>(
+                      builder: (context, state) {
+                        bool isFav = false;
+
+                        if (state is FavoritesSuccess) {
+                          isFav = state.meals.any(
+                              (meal) => meal.mealId == widget.mealModel.mealId);
+                        }
+
+                        return GestureDetector(
+                          onTap: () {
+                            if (isFav) {
+                              context
+                                  .read<FavoritesCubit>()
+                                  .removeMealFromFavorites(
+                                      widget.mealModel.mealId);
+                            } else {
+                              context
+                                  .read<FavoritesCubit>()
+                                  .addMealToFavorites(widget.mealModel);
+                            }
+                          },
+                          child: Icon(
+                            Icons.favorite,
+                            size: 24,
+                            color: isFav ? Colors.red : Colors.grey,
+                          ),
+                        );
                       },
-                      child: Icon(
-                        Icons.favorite,
-                        size: 24,
-                        color: fav ? Colors.red : Colors.grey,
-                      ),
                     ),
                   ),
                 ),

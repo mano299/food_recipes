@@ -8,14 +8,53 @@ part 'favorites_state.dart';
 
 class FavoritesCubit extends Cubit<FavoritesState> {
   FavoritesCubit() : super(FavoritesInitial());
-
+  final String uid = FirebaseAuth.instance.currentUser!.uid;
   Future<void> addMealToFavorites(MealModel meal) async {
-    final String uid = FirebaseAuth.instance.currentUser!.uid;
-    await FirebaseFirestore.instance
-        .collection("users")
-        .doc(uid)
-        .collection("Favorites")
-        .doc(meal.mealId)
-        .set(meal.toJson());
+    try {
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(uid)
+          .collection("Favorites")
+          .doc(meal.mealId)
+          .set(meal.toJson());
+
+      getFavoritesMeals();
+    } catch (e) {
+      emit(FavoritesFailure(errMessage: e.toString()));
+    }
+  }
+
+  Future<void> getFavoritesMeals() async {
+    emit(FavoritesLoading());
+    try {
+      var snapshot = await FirebaseFirestore.instance
+          .collection("users")
+          .doc(uid)
+          .collection("Favorites")
+          .get();
+
+      List<MealModel> favoritesMeal =
+          snapshot.docs.map((doc) => MealModel.fromJson(doc.data())).toList();
+      emit(FavoritesSuccess(meals: favoritesMeal));
+    } catch (e) {
+      emit(FavoritesFailure(errMessage: e.toString()));
+    }
+  }
+
+  Future<void> removeMealFromFavorites(String mealId) async {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+
+    try {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('favorites')
+          .doc(mealId)
+          .delete();
+
+      getFavoritesMeals();
+    } catch (e) {
+      emit(FavoritesFailure(errMessage: e.toString()));
+    }
   }
 }
