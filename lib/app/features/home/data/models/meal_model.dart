@@ -13,4 +13,12 @@ class MealModel {
       mealId: meals["idMeal"],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "strMeal": mealName,
+      "strMealThumb": mealImage,
+      "idMeal": mealId,
+    };
+  }
 }
