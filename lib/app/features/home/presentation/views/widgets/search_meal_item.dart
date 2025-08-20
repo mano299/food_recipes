@@ -2,25 +2,21 @@ import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
-import 'package:food_recipes/app/features/meal/presentation/manager/recipes/recipe_cubit.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
 
-class PopularListViewItem extends StatefulWidget {
-  PopularListViewItem({super.key, required this.mealModel});
+class SearchMealItem extends StatefulWidget {
+  const SearchMealItem({super.key, required this.mealModel});
   final MealModel mealModel;
-
   @override
-  State<PopularListViewItem> createState() => _PopularListViewItemState();
+  State<SearchMealItem> createState() => _SearchMealItemState();
 }
 
-class _PopularListViewItemState extends State<PopularListViewItem> {
+class _SearchMealItemState extends State<SearchMealItem> {
   bool fav = false;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -35,8 +31,6 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
         log(widget.mealModel.mealId);
       },
       child: Container(
-        width: 200,
-        margin: EdgeInsets.only(right: 16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
