@@ -12,7 +12,7 @@ class PopulerListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MealCubit, MealState>(
       builder: (context, state) {
-        if (state is getMealSuccess) {
+        if (state is MealSuccess) {
           return ListView.builder(
             itemCount: state.meals.length,
             scrollDirection: Axis.horizontal,
@@ -22,7 +22,7 @@ class PopulerListView extends StatelessWidget {
               );
             },
           );
-        } else if (state is getMealFailure) {
+        } else if (state is MealFailure) {
           return Center(
             child: Text(
               state.errMessage,

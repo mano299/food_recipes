@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/error/failure.dart';
 import 'package:food_recipes/app/core/utils/api_service.dart';
 import 'package:food_recipes/app/features/home/data/models/categories_model.dart';
 import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 import 'package:food_recipes/app/features/home/data/repo/home_repo.dart';
+import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/meal_cubit.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
@@ -49,12 +51,12 @@ class HomeRepoImpl implements HomeRepo {
       }
     }
   }
-  
-    @override
+
+  @override
   Future<Either<Failure, List<MealModel>>> fetchFeatured() async {
     try {
       Map<String, dynamic> data =
-          await apiService.get(endPoint: "filter.php?a=French"); 
+          await apiService.get(endPoint: "filter.php?a=French");
       List<MealModel> meals = [];
       for (var meal in data["meals"]) {
         meals.add(MealModel.fromJson(meal));
@@ -69,4 +71,11 @@ class HomeRepoImpl implements HomeRepo {
     }
   }
 
+  // @override
+  // Future<Either<Failure, List<MealModel>>> getAllMeal(
+  //     List<CategoriesModel> categoryList) async {
+  //   for (int i = 0; i < categoryList.length; i++) {
+  //     BlocProvider.of<MealCubit>(context).getMealByCategory(categoryList[i]);
+  //   }
+  // }
 }

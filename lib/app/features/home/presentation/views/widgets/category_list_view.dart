@@ -20,6 +20,7 @@ class _CategoryListViewState extends State<CategoryListView> {
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {
         if (state is CategoriesSuccess) {
+          BlocProvider.of<MealCubit>(context).categories = state.categories;
           return SizedBox(
             height: 48,
             child: Padding(

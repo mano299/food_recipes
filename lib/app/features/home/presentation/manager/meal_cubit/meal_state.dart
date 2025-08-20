@@ -9,17 +9,17 @@ sealed class MealState extends Equatable {
 
 final class MealInitial extends MealState {}
 
-final class getMealSuccess extends MealState {
+final class MealSuccess extends MealState {
   final List<MealModel> meals;
-  const getMealSuccess({required this.meals});
+  const MealSuccess({required this.meals});
 
   @override
   List<Object> get props => [meals];
 }
 
-final class getMealLoading extends MealState {}
+final class MealLoading extends MealState {}
 
-final class getMealFailure extends MealState {
+final class MealFailure extends MealState {
   final String errMessage;
-  const getMealFailure({required this.errMessage});
+  const MealFailure({required this.errMessage});
 }
