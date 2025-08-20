@@ -11,15 +11,11 @@ import 'package:food_recipes/app/features/meal/presentation/manager/recipes/reci
 import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
 import 'package:food_recipes/app/features/profile/presentation/manager/cubit/favorites_cubit.dart';
 
-class PopularListViewItem extends StatefulWidget {
+class PopularListViewItem extends StatelessWidget {
   PopularListViewItem({super.key, required this.mealModel});
+
   final MealModel mealModel;
 
-  @override
-  State<PopularListViewItem> createState() => _PopularListViewItemState();
-}
-
-class _PopularListViewItemState extends State<PopularListViewItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -28,10 +24,10 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
             context,
             MaterialPageRoute(
               builder: (context) => MealView(
-                mealId: widget.mealModel.mealId,
+                mealId: mealModel.mealId,
               ),
             ));
-        log(widget.mealModel.mealId);
+        log(mealModel.mealId);
       },
       child: Container(
         width: 200,
@@ -57,7 +53,7 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(32),
                     child: CachedNetworkImage(
-                      imageUrl: widget.mealModel.mealImage ??
+                      imageUrl: mealModel.mealImage ??
                           "https://folkways.today/wp-content/uploads/2022/06/iStock-1156340508.jpg",
                       placeholder: (context, url) =>
                           Center(child: CircularIndicator()),
@@ -89,8 +85,8 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
                         bool isFav = false;
 
                         if (state is FavoritesSuccess) {
-                          isFav = state.meals.any(
-                              (meal) => meal.mealId == widget.mealModel.mealId);
+                          isFav = state.meals
+                              .any((meal) => meal.mealId == mealModel.mealId);
                         }
 
                         return GestureDetector(
@@ -98,12 +94,11 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
                             if (isFav) {
                               context
                                   .read<FavoritesCubit>()
-                                  .removeMealFromFavorites(
-                                      widget.mealModel.mealId);
+                                  .removeMealFromFavorites(mealModel.mealId);
                             } else {
                               context
                                   .read<FavoritesCubit>()
-                                  .addMealToFavorites(widget.mealModel);
+                                  .addMealToFavorites(mealModel);
                             }
                           },
                           child: Icon(
@@ -122,7 +117,7 @@ class _PopularListViewItemState extends State<PopularListViewItem> {
               padding: EdgeInsets.all(8.0),
               child: Center(
                 child: Text(
-                  widget.mealModel.mealName,
+                  mealModel.mealName,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style:

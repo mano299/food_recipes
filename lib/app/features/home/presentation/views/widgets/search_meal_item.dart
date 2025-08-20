@@ -10,15 +10,10 @@ import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
 import 'package:food_recipes/app/features/profile/presentation/manager/cubit/favorites_cubit.dart';
 
-class SearchMealItem extends StatefulWidget {
-  const SearchMealItem({super.key, required this.mealModel});
+class SearchMealItem extends StatelessWidget {
   final MealModel mealModel;
-  @override
-  State<SearchMealItem> createState() => _SearchMealItemState();
-}
 
-class _SearchMealItemState extends State<SearchMealItem> {
-  bool fav = false;
+  const SearchMealItem({super.key, required this.mealModel});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,10 +22,10 @@ class _SearchMealItemState extends State<SearchMealItem> {
             context,
             MaterialPageRoute(
               builder: (context) => MealView(
-                mealId: widget.mealModel.mealId,
+                mealId: mealModel.mealId,
               ),
             ));
-        log(widget.mealModel.mealId);
+        log(mealModel.mealId);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -54,7 +49,7 @@ class _SearchMealItemState extends State<SearchMealItem> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(32),
                     child: CachedNetworkImage(
-                      imageUrl: widget.mealModel.mealImage ??
+                      imageUrl: mealModel.mealImage ??
                           "https://folkways.today/wp-content/uploads/2022/06/iStock-1156340508.jpg",
                       placeholder: (context, url) =>
                           Center(child: CircularIndicator()),
@@ -86,8 +81,8 @@ class _SearchMealItemState extends State<SearchMealItem> {
                         bool isFav = false;
 
                         if (state is FavoritesSuccess) {
-                          isFav = state.meals.any(
-                              (meal) => meal.mealId == widget.mealModel.mealId);
+                          isFav = state.meals
+                              .any((meal) => meal.mealId == mealModel.mealId);
                         }
 
                         return GestureDetector(
@@ -95,12 +90,11 @@ class _SearchMealItemState extends State<SearchMealItem> {
                             if (isFav) {
                               context
                                   .read<FavoritesCubit>()
-                                  .removeMealFromFavorites(
-                                      widget.mealModel.mealId);
+                                  .removeMealFromFavorites(mealModel.mealId);
                             } else {
                               context
                                   .read<FavoritesCubit>()
-                                  .addMealToFavorites(widget.mealModel);
+                                  .addMealToFavorites(mealModel);
                             }
                           },
                           child: Icon(
@@ -119,7 +113,7 @@ class _SearchMealItemState extends State<SearchMealItem> {
               padding: EdgeInsets.all(8.0),
               child: Center(
                 child: Text(
-                  widget.mealModel.mealName,
+                  mealModel.mealName,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style:
