@@ -48,7 +48,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
       await FirebaseFirestore.instance
           .collection('users')
           .doc(uid)
-          .collection('favorites')
+          .collection('Favorites')
           .doc(mealId)
           .delete();
 

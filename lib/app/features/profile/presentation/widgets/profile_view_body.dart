@@ -14,24 +14,19 @@ class ProfileViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: profileAppBar(context),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Column(
-              children: [
-                SizedBox(height: 26),
-                UserInfo(),
-                SizedBox(height: 24),
-                FavoriteHeader(),
-                SizedBox(height: 12),
-                MyFavoriteGridView(),
-              ],
-            ),
-          ),
-        ),
-      ),
+          backgroundColor: Colors.white,
+          appBar: profileAppBar(context),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: CustomScrollView(slivers: [
+              SliverToBoxAdapter(child: SizedBox(height: 26)),
+              SliverToBoxAdapter(child: UserInfo()),
+              SliverToBoxAdapter(child: SizedBox(height: 24)),
+              SliverToBoxAdapter(child: FavoriteHeader()),
+              SliverToBoxAdapter(child: SizedBox(height: 12)),
+              MyFavoriteGridView(),
+            ]),
+          )),
     );
   }
 

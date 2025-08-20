@@ -1,17 +1,32 @@
+import 'dart:developer';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/core/utils/colors.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
+import 'package:food_recipes/app/features/home/data/models/meal_model.dart';
 import 'package:food_recipes/app/features/meal/presentation/manager/recipes/recipe_cubit.dart';
-class FavoriteGridViewItem extends StatelessWidget {
-  final dynamic meal;
-  const FavoriteGridViewItem({super.key, required this.meal});
+import 'package:food_recipes/app/features/meal/presentation/views/meal_view.dart';
+import 'package:food_recipes/app/features/profile/presentation/manager/cubit/favorites_cubit.dart';
 
+class FavoriteGridViewItem extends StatelessWidget {
+  const FavoriteGridViewItem({super.key, required this.mealModel});
+  final MealModel mealModel;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MealView(
+                mealId: mealModel.mealId,
+              ),
+            ));
+        log(mealModel.mealId);
+      },
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -20,13 +35,12 @@ class FavoriteGridViewItem extends StatelessWidget {
             BoxShadow(
               color: Colors.black12,
               blurRadius: 10,
-              offset: const Offset(6, 6),
+              offset: Offset(6, 6),
             )
           ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
           children: [
             Stack(
               children: [
@@ -34,9 +48,20 @@ class FavoriteGridViewItem extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(32),
-                    child: Image.network(
-                      meal.strMealThumb,
-                      height: 110,
+                    child: CachedNetworkImage(
+                      imageUrl: mealModel.mealImage ??
+                          "https://folkways.today/wp-content/uploads/2022/06/iStock-1156340508.jpg",
+                      placeholder: (context, url) =>
+                          Center(child: CircularIndicator()),
+                      errorWidget: (context, url, error) => Container(
+                        color: Colors.grey[200],
+                        child: Icon(
+                          Icons.image_not_supported,
+                          color: Colors.grey[400],
+                          size: 40,
+                        ),
+                      ),
+                      height: 180,
                       width: double.infinity,
                       fit: BoxFit.cover,
                     ),
@@ -46,27 +71,54 @@ class FavoriteGridViewItem extends StatelessWidget {
                   top: 16,
                   right: 16,
                   child: Container(
-                    padding: const EdgeInsets.all(6),
+                    padding: EdgeInsets.all(6),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const Icon(
-                      Icons.favorite,
-                      size: 24,
-                      color: Colors.red,
+                    child: BlocBuilder<FavoritesCubit, FavoritesState>(
+                      builder: (context, state) {
+                        bool isFav = false;
+
+                        if (state is FavoritesSuccess) {
+                          isFav = state.meals
+                              .any((meal) => meal.mealId == mealModel.mealId);
+                        }
+
+                        return GestureDetector(
+                          onTap: () {
+                            if (isFav) {
+                              context
+                                  .read<FavoritesCubit>()
+                                  .removeMealFromFavorites(mealModel.mealId);
+                            } else {
+                              context
+                                  .read<FavoritesCubit>()
+                                  .addMealToFavorites(mealModel);
+                            }
+                          },
+                          child: Icon(
+                            Icons.favorite,
+                            size: 24,
+                            color: isFav ? Colors.red : Colors.grey,
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              child: Text(
-                meal.strMeal,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: Styles.textStyle18(context).copyWith(color: kTextColor),
+              padding: EdgeInsets.all(8.0),
+              child: Center(
+                child: Text(
+                  mealModel.mealName,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style:
+                      Styles.textStyle18(context).copyWith(color: kTextColor),
+                ),
               ),
             ),
           ],
