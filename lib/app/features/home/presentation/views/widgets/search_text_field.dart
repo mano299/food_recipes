@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 
 class searchTextField extends StatelessWidget {
-  const searchTextField({
-    super.key,
-  });
-
+  searchTextField({super.key, this.onChange});
+  void Function(String)? onChange;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChange,
       style: Styles.textStyle18(context),
       decoration: InputDecoration(
         border: OutlineInputBorder(

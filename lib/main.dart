@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipes/app/core/utils/service_locator.dart';
+import 'package:food_recipes/app/features/home/data/repo/home_repo_impl.dart';
+import 'package:food_recipes/app/features/home/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/home_view.dart';
 import 'package:food_recipes/app/features/splash/presentation/views/splash_view.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/Register_cubit/register_cubit.dart';
@@ -31,6 +33,8 @@ class FoodRecipe extends StatelessWidget {
         BlocProvider(create: (context) => LoginCubit()),
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => UserDataCubit()..getUserData()),
+        BlocProvider(
+            create: (context) => SearchCubit(getIt.get<HomeRepoImpl>())),
       ],
       child: MaterialApp(
         title: 'Tasty',

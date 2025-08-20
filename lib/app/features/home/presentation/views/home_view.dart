@@ -5,6 +5,7 @@ import 'package:food_recipes/app/features/home/data/repo/home_repo_impl.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/featured_cubit/featured_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/meal_cubit.dart';
+import 'package:food_recipes/app/features/home/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:food_recipes/app/features/meal/data/repo/recipe_reop_impl.dart';
 import 'package:food_recipes/app/features/meal/presentation/manager/recipes/recipe_cubit.dart';

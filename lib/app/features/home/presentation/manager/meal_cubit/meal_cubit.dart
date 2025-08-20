@@ -25,46 +25,6 @@ class MealCubit extends Cubit<MealState> {
       (meals) => emit(MealSuccess(meals: meals)),
     );
   }
-
-  List<MealModel> allMeals = [];
-  List<CategoriesModel> categories = [];
-
-  Future<void> loadAllMeals() async {
-    emit(MealLoading());
-
-    try {
-      final results = await Future.wait(
-        categories.map((c) => homeRepo.getMealsByCategory(c.category)),
-      );
-
-      List<MealModel> collected = [];
-
-      for (var result in results) {
-        result.fold(
-          (_) {},
-          (meals) => collected.addAll(meals),
-        );
-      }
-
-      allMeals = collected;
-      emit(MealSuccess(meals: allMeals));
-    } catch (e) {
-      emit(MealFailure(errMessage: e.toString()));
-    }
-  }
-
-  void searchMeals(String query) {
-    if (query.isEmpty) {
-      emit(MealSuccess(meals: allMeals));
-    } else {
-      final filtered = allMeals
-          .where((meal) =>
-              meal.mealName.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-
-      emit(MealSuccess(meals: filtered));
-    }
-  }
 }
 
 // class MealCubit extends Cubit<MealState> {

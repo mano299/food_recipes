@@ -4,6 +4,8 @@ import 'package:food_recipes/app/core/utils/circular_indicator.dart';
 import 'package:food_recipes/app/core/utils/styles.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/meal_cubit/meal_cubit.dart';
+import 'package:food_recipes/app/features/home/presentation/manager/search_cubit/search_cubit.dart';
+import 'package:food_recipes/app/features/home/presentation/views/search_view.dart';
 import 'package:food_recipes/app/features/home/presentation/views/widgets/category_item.dart';
 
 class CategoryListView extends StatefulWidget {
@@ -20,7 +22,7 @@ class _CategoryListViewState extends State<CategoryListView> {
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {
         if (state is CategoriesSuccess) {
-          BlocProvider.of<MealCubit>(context).categories = state.categories;
+          BlocProvider.of<SearchCubit>(context).categories = state.categories;
           return SizedBox(
             height: 48,
             child: Padding(
