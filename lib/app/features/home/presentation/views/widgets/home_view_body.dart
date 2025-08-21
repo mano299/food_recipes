@@ -48,7 +48,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const CustomAppBar(),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24.0),
                     child: Text(
