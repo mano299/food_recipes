@@ -9,6 +9,7 @@ import 'package:food_recipes/app/features/splash/presentation/views/splash_view.
 import 'package:food_recipes/app/features/welcome/presentation/manager/Register_cubit/register_cubit.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_cubit.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/user_data_cubit/user_data_cubit.dart';
+import 'package:food_recipes/app/features/welcome/presentation/views/welcome_view.dart';
 import 'package:food_recipes/firebase_options.dart';
 import 'package:food_recipes/simple_bloc_observer.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,7 +44,7 @@ class FoodRecipe extends StatelessWidget {
           textTheme: GoogleFonts.latoTextTheme(),
         ),
         debugShowCheckedModeBanner: false,
-        home: const SplashView(),
+        home: const WelcomeView(),
       ),
     );
   }

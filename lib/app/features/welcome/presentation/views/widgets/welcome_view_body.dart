@@ -18,14 +18,7 @@ class WelcomeViewBody extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text(
-              "Later",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
+            
             SizedBox(
               width: 16,
             ),

@@ -68,6 +68,8 @@ class RegisterPageBody extends StatelessWidget {
                       },
                     ),
                     Customtextfield(
+                      maxLength: true,
+                      
                       hint: "Phone Number",
                       icon: Icons.phone_iphone_outlined,
                       onChanged: (value) {
@@ -76,7 +78,7 @@ class RegisterPageBody extends StatelessWidget {
                     ),
                     Customtextfield(
                       obscureText: true,
-                      hint: "Strong Password",
+                      hint: "Password",
                       icon: Icons.lock_outline,
                       onChanged: (value) {
                         password = value;
