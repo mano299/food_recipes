@@ -5,6 +5,7 @@ import 'package:food_recipes/app/core/utils/service_locator.dart';
 import 'package:food_recipes/app/features/home/data/repo/home_repo_impl.dart';
 import 'package:food_recipes/app/features/home/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:food_recipes/app/features/profile/presentation/manager/cubit/favorites_cubit.dart';
+import 'package:food_recipes/app/features/splash/presentation/views/splash_view.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/Register_cubit/register_cubit.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/login_cubits/login_cubit.dart';
 import 'package:food_recipes/app/features/welcome/presentation/manager/user_data_cubit/user_data_cubit.dart';
@@ -43,7 +44,7 @@ class FoodRecipe extends StatelessWidget {
           textTheme: GoogleFonts.latoTextTheme(),
         ),
         debugShowCheckedModeBanner: false,
-        home: const WelcomeView(),
+        home: const SplashView(),
       ),
     );
   }

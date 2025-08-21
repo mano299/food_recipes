@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                  DateTime.now().hour < 18
+                  DateTime.now().hour < 12
                       ? Icons.wb_sunny_outlined
                       : Icons.nightlight_round_outlined,
                   color: Color(0xff4D8194),
@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
                 ),
                 SizedBox(width: 4),
                 Text(
-                  DateTime.now().hour < 18 ? 'Good Morning' : 'Good Evening',
+                  DateTime.now().hour < 12 ? 'Good Morning' : 'Good Evening',
                   style: Styles.textStyle16(context).copyWith(
                     fontWeight: FontWeight.w700,
                   ),
