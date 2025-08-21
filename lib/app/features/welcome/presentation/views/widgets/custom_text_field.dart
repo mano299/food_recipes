@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 
 class Customtextfield extends StatelessWidget {
-  const Customtextfield({
-    super.key,
-    required this.hint,
-    this.onChanged,
-    required this.icon,
-    this.obscureText = false,
-    this.maxLength = false,
-  });
+  const Customtextfield(
+      {super.key,
+      required this.hint,
+      this.onChanged,
+      required this.icon,
+      this.obscureText = false,
+      this.maxLength = false,
+      this.onTapSuffixIcon});
   final String hint;
   final Function(String)? onChanged;
   final IconData icon;
   final bool obscureText;
   final bool maxLength;
+  final void Function()? onTapSuffixIcon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,12 +36,14 @@ class Customtextfield extends StatelessWidget {
           counterStyle: TextStyle(
             color: Colors.white,
           ),
-          suffixIcon: Icon(
-            icon,
-            color: Colors.white,
-            size: 26,
+          suffixIcon: GestureDetector(
+            onTap: onTapSuffixIcon,
+            child: Icon(
+              icon,
+              color: Colors.white,
+              size: 26,
+            ),
           ),
-          //suffix: Icon(icon),
           iconColor: Colors.white,
           hintText: hint,
           hintStyle: TextStyle(color: Colors.white),

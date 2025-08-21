@@ -12,14 +12,21 @@ import 'package:food_recipes/app/features/welcome/presentation/views/register_pa
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPageBody extends StatelessWidget {
+class LoginPageBody extends StatefulWidget {
   LoginPageBody({
     super.key,
   });
 
+  @override
+  State<LoginPageBody> createState() => _LoginPageBodyState();
+}
+
+class _LoginPageBodyState extends State<LoginPageBody> {
   String? name, email, phoneNumber, password;
 
   bool isLoading = false;
+
+  bool isScureText = true;
 
   GlobalKey<FormState> formKey = GlobalKey();
 
@@ -59,9 +66,14 @@ class LoginPageBody extends StatelessWidget {
                       },
                     ),
                     Customtextfield(
-                      obscureText: true,
+                      onTapSuffixIcon: () {
+                        isScureText = !isScureText;
+                        setState(() {});
+                      },
+                      obscureText: isScureText,
                       hint: "Password",
-                      icon: Icons.lock_outline,
+                      icon:
+                          isScureText ? Icons.visibility_off : Icons.visibility,
                       onChanged: (value) {
                         password = value;
                       },
@@ -152,12 +164,4 @@ class LoginPageBody extends StatelessWidget {
       },
     );
   }
-
-  // Future<void> LoginUser() async {
-  //   UserCredential userCredential =
-  //       await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //     email: email!,
-  //     password: password!,
-  //   );
-  // }
 }

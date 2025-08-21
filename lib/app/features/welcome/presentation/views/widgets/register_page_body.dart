@@ -13,15 +13,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:food_recipes/app/features/welcome/presentation/views/login_page.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class RegisterPageBody extends StatelessWidget {
+class RegisterPageBody extends StatefulWidget {
   RegisterPageBody({
     super.key,
   });
 
+  @override
+  State<RegisterPageBody> createState() => _RegisterPageBodyState();
+}
+
+class _RegisterPageBodyState extends State<RegisterPageBody> {
   String? name, email, phoneNumber, password;
 
   bool isLoading = false;
-
+  bool isScureText = true;
   GlobalKey<FormState> formKey = GlobalKey();
 
   @override
@@ -69,7 +74,6 @@ class RegisterPageBody extends StatelessWidget {
                     ),
                     Customtextfield(
                       maxLength: true,
-                      
                       hint: "Phone Number",
                       icon: Icons.phone_iphone_outlined,
                       onChanged: (value) {
@@ -77,9 +81,14 @@ class RegisterPageBody extends StatelessWidget {
                       },
                     ),
                     Customtextfield(
-                      obscureText: true,
+                      onTapSuffixIcon: () {
+                        isScureText = !isScureText;
+                        setState(() {});
+                      },
+                      obscureText: isScureText,
                       hint: "Password",
-                      icon: Icons.lock_outline,
+                      icon:
+                          isScureText ? Icons.visibility_off : Icons.visibility,
                       onChanged: (value) {
                         password = value;
                       },
